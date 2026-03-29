@@ -1,5 +1,7 @@
 # snake-spike-sem
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19316098.svg)](https://doi.org/10.5281/zenodo.19316098)
+
 Hierarchical modelling pipeline for evaluating how reconstructed *Python regius* scale topography suppresses early bacterial colonisation.
 
 ## Repository layout
