@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "snake-spike-sem: Hierarchical modelling pipeline for topography-controlled suppression of early bacterial colonisation on Python regius scales"
+version: 1.0.0
+type: software
+abstract: >-
+  Submission-ready software release for the hierarchical modelling pipeline used to
+  evaluate how reconstructed Python regius scale topography suppresses early bacterial
+  colonisation. The repository includes the model code, final manuscript-facing figures,
+  convergence checks, global sensitivity outputs, and submission summary tables.
+authors:
+  - family-names: Pereira
+    given-names: Antonio
+    affiliation: "Signal Processing Laboratory, Federal University of Pará, Belém, Brazil"
+  - family-names: Cruz Neves
+    given-names: Bianca
+    affiliation: "Institute of Chemistry, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil"
+keywords:
+  - biofilm
+  - antimicrobial surfaces
+  - Python regius
+  - hierarchical modelling
+  - topography
+  - bacterial colonisation
+repository-code: "https://github.com/squareshorts/snake-spike-sem"
+url: "https://github.com/squareshorts/snake-spike-sem"

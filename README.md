@@ -48,6 +48,16 @@ The current manuscript-facing outputs are committed under `results/submission/`,
 - `results/submission/figures/figure_mechanism_ablation.png`
 - `results/submission/figures/figure_phase_diagram.png`
 
+## Zenodo release checklist
+
+1. Log in to Zenodo and connect your GitHub account.
+2. In Zenodo, open the GitHub integration page, click `Sync now`, and enable `squareshorts/snake-spike-sem`.
+3. After the repository is enabled, create a GitHub release from tag `v1.0.0`.
+4. Wait for Zenodo to ingest the release and mint the version DOI.
+5. Copy the Zenodo DOI badge back into this README and into the manuscript data-availability statement.
+
+The repository already includes both `CITATION.cff` and `.zenodo.json`. Per Zenodo's current documentation, Zenodo will use `.zenodo.json` for GitHub release archiving metadata, while GitHub will use `CITATION.cff` to display a preferred citation.
+
 ## Notes
 
 The original reduced support-connectivity model is retained in the codebase as an explicit limiting case of the hierarchical model, and the current README reflects the submission-oriented workflow rather than the earlier exploratory runs.
