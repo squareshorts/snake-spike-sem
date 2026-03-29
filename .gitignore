@@ -1,0 +1,13 @@
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+outputs/
+outputs_*/
+*.aux
+*.log
+*.out
+*.fdb_latexmk
+*.fls
+Thumbs.db
+.DS_Store

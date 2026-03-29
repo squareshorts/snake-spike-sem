@@ -1,0 +1,22 @@
+species,parameter,spearman_rho
+E. coli,tip_radius_mu,-0.015479876160990712
+E. coli,base_radius_mu,-0.9545923632610939
+E. coli,sharpness_mu,0.005159958720330237
+E. coli,compliance_scale,-0.08565531475748193
+E. coli,appendage_length_scale,0.12693498452012383
+E. coli,eps_diffusivity,-0.14138286893704852
+E. coli,capture_rate,0.3333333333333333
+S. aureus,tip_radius_mu,0.0608875128998968
+S. aureus,base_radius_mu,-0.9649122807017544
+S. aureus,sharpness_mu,0.05056759545923633
+S. aureus,compliance_scale,-0.16202270381836945
+S. aureus,appendage_length_scale,0.1393188854489164
+S. aureus,eps_diffusivity,-0.10629514963880289
+S. aureus,capture_rate,0.33746130030959753
+P. aeruginosa,tip_radius_mu,0.021671826625386997
+P. aeruginosa,base_radius_mu,-0.9649122807017544
+P. aeruginosa,sharpness_mu,0.09597523219814241
+P. aeruginosa,compliance_scale,-0.11867905056759546
+P. aeruginosa,appendage_length_scale,0.18059855521155832
+P. aeruginosa,eps_diffusivity,-0.1021671826625387
+P. aeruginosa,capture_rate,0.23219814241486067

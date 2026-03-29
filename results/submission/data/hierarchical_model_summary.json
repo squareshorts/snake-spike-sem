@@ -1,0 +1,103 @@
+{
+  "config": {
+    "dx": 0.6,
+    "domain_x": 36.0,
+    "domain_y": 36.0,
+    "ensemble_size": 8,
+    "calibration_surfaces": 8,
+    "n_steps": 18,
+    "dt": 0.25,
+    "beta": 4.5,
+    "eps_diffusivity": 0.14,
+    "eps_diffusion_exponent": 1.3,
+    "eps_decay": 0.05,
+    "eps_yield": 0.02,
+    "eps_bridge_threshold": 0.006,
+    "eps_attach_threshold": 0.0015,
+    "eps_mature_threshold": 0.003,
+    "arrival_rate": 0.24,
+    "capture_rate": 0.9,
+    "use_compliance": true,
+    "use_appendages": true,
+    "use_dynamic_eps": true,
+    "use_state_dynamics": true,
+    "use_transport": true,
+    "obs_gain": 60.78078967841017,
+    "obs_bias": 0.03809086995875205,
+    "uq_samples": 18,
+    "phase_pitch_values": [
+      3.8,
+      4.4,
+      5.0,
+      5.6,
+      6.2
+    ],
+    "phase_appendage_scales": [
+      0.6,
+      0.9,
+      1.2,
+      1.5,
+      1.8
+    ]
+  },
+  "calibration": {
+    "obs_gain": 60.78078967841017,
+    "obs_bias": 0.03809086995875205,
+    "sse": 0.00017831030747896104,
+    "predictions": {
+      "E. coli": 0.12129289274507687,
+      "S. aureus": 0.21831090218835372
+    },
+    "prediction_spread": {
+      "E. coli": 0.0208282457610358,
+      "S. aureus": 0.05162294093356247
+    },
+    "raw_means": {
+      "E. coli": 0.005302518531360545,
+      "S. aureus": 0.016642044247696268
+    },
+    "raw_spread": {
+      "E. coli": 0.002963098642335183,
+      "S. aureus": 0.005244808504427797
+    },
+    "fit_species": [
+      "E. coli",
+      "S. aureus"
+    ],
+    "calibration_surfaces": 8
+  },
+  "full_species_summary": [
+    {
+      "species": "E. coli",
+      "mean": 0.12129289274507687,
+      "std": 0.02226633131580647
+    },
+    {
+      "species": "P. aeruginosa",
+      "mean": 0.13601543951528722,
+      "std": 0.030301936367851747
+    },
+    {
+      "species": "S. aureus",
+      "mean": 0.21831090218835372,
+      "std": 0.05518724522030253
+    }
+  ],
+  "reduced_species_summary": [
+    {
+      "species": "E. coli",
+      "mean": 0.3788349865461317,
+      "std": 0.2903627815738349
+    },
+    {
+      "species": "P. aeruginosa",
+      "mean": 0.3655741542828887,
+      "std": 0.25066347217666773
+    },
+    {
+      "species": "S. aureus",
+      "mean": 0.9917669496276779,
+      "std": 0.023273626143205984
+    }
+  ]
+}
