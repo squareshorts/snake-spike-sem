@@ -3,6 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "snake-spike-sem: Hierarchical modelling pipeline for topography-controlled suppression of early bacterial colonisation on Python regius scales"
 version: 1.0.0
 type: software
+license: MIT
 abstract: >-
   Submission-ready software release for the hierarchical modelling pipeline used to
   evaluate how reconstructed Python regius scale topography suppresses early bacterial

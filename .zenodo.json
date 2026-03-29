@@ -8,7 +8,7 @@
   "creators": [
     {
       "name": "Pereira, Antonio",
-      "affiliation": "Signal Processing Laboratory, Federal University of Pará, Belém, Brazil",
+      "affiliation": "Signal Processing Laboratory, Federal University of Par\u00e1, Bel\u00e9m, Brazil",
       "type": "ProjectMember"
     },
     {
@@ -24,5 +24,6 @@
     "hierarchical modelling",
     "topography",
     "bacterial colonisation"
-  ]
+  ],
+  "license": "mit"
 }

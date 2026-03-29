@@ -58,6 +58,10 @@ The current manuscript-facing outputs are committed under `results/submission/`,
 
 The repository already includes both `CITATION.cff` and `.zenodo.json`. Per Zenodo's current documentation, Zenodo will use `.zenodo.json` for GitHub release archiving metadata, while GitHub will use `CITATION.cff` to display a preferred citation.
 
+## License
+
+This repository is released under the MIT License.
+
 ## Notes
 
 The original reduced support-connectivity model is retained in the codebase as an explicit limiting case of the hierarchical model, and the current README reflects the submission-oriented workflow rather than the earlier exploratory runs.
