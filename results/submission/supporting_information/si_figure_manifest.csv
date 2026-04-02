@@ -1,0 +1,7 @@
+figure,generator,data_dependencies,scale_information
+figure_surface_ensemble.png,plot_surfaces,surface_ensemble_descriptors.csv,Each panel spans 36 x 36 um; white scale bar = 10 um.
+figure_surface_losses.png,plot_surfaces,surface_ensemble_descriptors.csv,Histogram; not image-scale dependent.
+figure_mechanism_ablation.png,plot_ablations,hierarchical_mechanism_ablation.csv,Bar chart; not image-scale dependent.
+figure_phase_diagram.png,plot_phase,hierarchical_phase_diagram.csv,Axes report pitch in um and appendage scaling factor.
+figure_benchmark_validation.png,plot_benchmarks,orthogonal_validation_benchmark.csv,Grouped benchmark comparison; not image-scale dependent.
+figure_device_boundary_conditions.png,plot_boundary_conditions,deployment_boundary_conditions.csv,Heatmaps of device-envelope robustness metrics; not image-scale dependent.

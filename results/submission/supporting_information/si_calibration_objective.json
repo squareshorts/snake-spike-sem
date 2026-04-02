@@ -1,0 +1,22 @@
+{
+  "fit_species": [
+    "E. coli",
+    "S. aureus"
+  ],
+  "observed_targets": {
+    "E. coli": 0.12,
+    "S. aureus": 0.22
+  },
+  "raw_means": {
+    "E. coli": 0.005302518531360545,
+    "S. aureus": 0.016642044247696268
+  },
+  "raw_spread": {
+    "E. coli": 0.002963098642335183,
+    "S. aureus": 0.005244808504427797
+  },
+  "selected_obs_gain": 60.78078967841017,
+  "selected_obs_bias": 0.03809086995875205,
+  "objective": "Minimise squared error between observed and predicted stable fractions for E. coli and S. aureus, with a weak penalty on prediction spread and large observation-gain values.",
+  "calibration_surfaces": 8
+}

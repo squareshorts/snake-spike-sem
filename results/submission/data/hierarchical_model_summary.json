@@ -99,5 +99,234 @@
       "mean": 0.9917669496276779,
       "std": 0.023273626143205984
     }
+  ],
+  "benchmark_summary": [
+    {
+      "surface_family": "native_ensemble",
+      "species": "E. coli",
+      "stable_fraction_mean": 0.12129289274507687,
+      "stable_fraction_std": 0.02226633131580647,
+      "raw_fraction_mean": 0.005302518531360545,
+      "largest_cc_mean": 0.4190946930280957,
+      "n_surfaces": 8
+    },
+    {
+      "surface_family": "native_ensemble",
+      "species": "P. aeruginosa",
+      "stable_fraction_mean": 0.13601543951528722,
+      "stable_fraction_std": 0.030301936367851747,
+      "raw_fraction_mean": 0.007356878600296366,
+      "largest_cc_mean": 0.5211043184183143,
+      "n_surfaces": 8
+    },
+    {
+      "surface_family": "native_ensemble",
+      "species": "S. aureus",
+      "stable_fraction_mean": 0.21831090218835372,
+      "stable_fraction_std": 0.05518724522030253,
+      "raw_fraction_mean": 0.016642044247696268,
+      "largest_cc_mean": 0.8809833506763788,
+      "n_surfaces": 8
+    },
+    {
+      "surface_family": "sharklet_like_positive_control",
+      "species": "E. coli",
+      "stable_fraction_mean": 0.7057326195748607,
+      "stable_fraction_std": 0.0,
+      "raw_fraction_mean": 0.05248271371910367,
+      "largest_cc_mean": 0.8834547346514048,
+      "n_surfaces": 1
+    },
+    {
+      "surface_family": "sharklet_like_positive_control",
+      "species": "P. aeruginosa",
+      "stable_fraction_mean": 0.8639210822923874,
+      "stable_fraction_std": 0.0,
+      "raw_fraction_mean": 0.06849926773985711,
+      "largest_cc_mean": 0.9484911550468262,
+      "n_surfaces": 1
+    },
+    {
+      "surface_family": "sharklet_like_positive_control",
+      "species": "S. aureus",
+      "stable_fraction_mean": 0.7912348035595181,
+      "stable_fraction_std": 0.0,
+      "raw_fraction_mean": 0.06001201669459652,
+      "largest_cc_mean": 1.0,
+      "n_surfaces": 1
+    },
+    {
+      "surface_family": "smooth_control",
+      "species": "E. coli",
+      "stable_fraction_mean": 0.9993438130411455,
+      "stable_fraction_std": 0.0,
+      "raw_fraction_mean": 0.15866199856371568,
+      "largest_cc_mean": 1.0,
+      "n_surfaces": 1
+    },
+    {
+      "surface_family": "smooth_control",
+      "species": "P. aeruginosa",
+      "stable_fraction_mean": 0.9999546649407118,
+      "stable_fraction_std": 0.0,
+      "raw_fraction_mean": 0.20263931702429813,
+      "largest_cc_mean": 1.0,
+      "n_surfaces": 1
+    },
+    {
+      "surface_family": "smooth_control",
+      "species": "S. aureus",
+      "stable_fraction_mean": 0.9847861490116439,
+      "stable_fraction_std": 0.0,
+      "raw_fraction_mean": 0.1067016640914426,
+      "largest_cc_mean": 1.0,
+      "n_surfaces": 1
+    }
+  ],
+  "boundary_summary": [
+    {
+      "scenario": "reference_lab",
+      "species": "E. coli",
+      "native_stable_fraction": 0.12387116786203206,
+      "smooth_stable_fraction": 0.9993438130411455,
+      "native_to_smooth_ratio": 0.12395250387859455,
+      "suppression_vs_smooth": 0.8760474961214054
+    },
+    {
+      "scenario": "reference_lab",
+      "species": "S. aureus",
+      "native_stable_fraction": 0.2378923583916799,
+      "smooth_stable_fraction": 0.9847861490116439,
+      "native_to_smooth_ratio": 0.24156753080903368,
+      "suppression_vs_smooth": 0.7584324691909663
+    },
+    {
+      "scenario": "reference_lab",
+      "species": "P. aeruginosa",
+      "native_stable_fraction": 0.14579652671378476,
+      "smooth_stable_fraction": 0.9999546649407118,
+      "native_to_smooth_ratio": 0.14580313670763181,
+      "suppression_vs_smooth": 0.8541968632923682
+    },
+    {
+      "scenario": "protein_conditioned",
+      "species": "E. coli",
+      "native_stable_fraction": 0.12799512384941877,
+      "smooth_stable_fraction": 0.9996256675884578,
+      "native_to_smooth_ratio": 0.12804305451479653,
+      "suppression_vs_smooth": 0.8719569454852034
+    },
+    {
+      "scenario": "protein_conditioned",
+      "species": "S. aureus",
+      "native_stable_fraction": 0.24550696181191847,
+      "smooth_stable_fraction": 0.9875491360781777,
+      "native_to_smooth_ratio": 0.24860227490744655,
+      "suppression_vs_smooth": 0.7513977250925534
+    },
+    {
+      "scenario": "protein_conditioned",
+      "species": "P. aeruginosa",
+      "native_stable_fraction": 0.1512284184165383,
+      "smooth_stable_fraction": 0.999972312898143,
+      "native_to_smooth_ratio": 0.1512326056090939,
+      "suppression_vs_smooth": 0.8487673943909061
+    },
+    {
+      "scenario": "low_shear_loading",
+      "species": "E. coli",
+      "native_stable_fraction": 0.11318566287103018,
+      "smooth_stable_fraction": 0.9965403654747279,
+      "native_to_smooth_ratio": 0.11357860332843743,
+      "suppression_vs_smooth": 0.8864213966715626
+    },
+    {
+      "scenario": "low_shear_loading",
+      "species": "S. aureus",
+      "native_stable_fraction": 0.20595135964067487,
+      "smooth_stable_fraction": 0.9562991343042502,
+      "native_to_smooth_ratio": 0.21536290502920258,
+      "suppression_vs_smooth": 0.7846370949707975
+    },
+    {
+      "scenario": "low_shear_loading",
+      "species": "P. aeruginosa",
+      "native_stable_fraction": 0.13325337527765793,
+      "smooth_stable_fraction": 0.9996009594911257,
+      "native_to_smooth_ratio": 0.1333065699991867,
+      "suppression_vs_smooth": 0.8666934300008133
+    },
+    {
+      "scenario": "soft_polymer_interface",
+      "species": "E. coli",
+      "native_stable_fraction": 0.12619580270028635,
+      "smooth_stable_fraction": 0.999360324376595,
+      "native_to_smooth_ratio": 0.1262765787495194,
+      "suppression_vs_smooth": 0.8737234212504806
+    },
+    {
+      "scenario": "soft_polymer_interface",
+      "species": "S. aureus",
+      "native_stable_fraction": 0.23953692166306487,
+      "smooth_stable_fraction": 0.9851701827794968,
+      "native_to_smooth_ratio": 0.24314268321362567,
+      "suppression_vs_smooth": 0.7568573167863744
+    },
+    {
+      "scenario": "soft_polymer_interface",
+      "species": "P. aeruginosa",
+      "native_stable_fraction": 0.1474385179256898,
+      "smooth_stable_fraction": 0.9999556255713502,
+      "native_to_smooth_ratio": 0.1474450607160163,
+      "suppression_vs_smooth": 0.8525549392839837
+    },
+    {
+      "scenario": "fabrication_rounding",
+      "species": "E. coli",
+      "native_stable_fraction": 0.11171647856951163,
+      "smooth_stable_fraction": 0.9993438130411455,
+      "native_to_smooth_ratio": 0.11178983360045276,
+      "suppression_vs_smooth": 0.8882101663995472
+    },
+    {
+      "scenario": "fabrication_rounding",
+      "species": "S. aureus",
+      "native_stable_fraction": 0.19927355155301513,
+      "smooth_stable_fraction": 0.9847861490116439,
+      "native_to_smooth_ratio": 0.20235210634614537,
+      "suppression_vs_smooth": 0.7976478936538547
+    },
+    {
+      "scenario": "fabrication_rounding",
+      "species": "P. aeruginosa",
+      "native_stable_fraction": 0.12949790182627546,
+      "smooth_stable_fraction": 0.9999546649407118,
+      "native_to_smooth_ratio": 0.12950377288749737,
+      "suppression_vs_smooth": 0.8704962271125026
+    },
+    {
+      "scenario": "combined_device_envelope",
+      "species": "E. coli",
+      "native_stable_fraction": 0.10848729587811395,
+      "smooth_stable_fraction": 0.9977064644307856,
+      "native_to_smooth_ratio": 0.10873668733820267,
+      "suppression_vs_smooth": 0.8912633126617974
+    },
+    {
+      "scenario": "combined_device_envelope",
+      "species": "S. aureus",
+      "native_stable_fraction": 0.17899187795731014,
+      "smooth_stable_fraction": 0.9609226757558317,
+      "native_to_smooth_ratio": 0.18627084413063802,
+      "suppression_vs_smooth": 0.813729155869362
+    },
+    {
+      "scenario": "combined_device_envelope",
+      "species": "P. aeruginosa",
+      "native_stable_fraction": 0.11954846758887798,
+      "smooth_stable_fraction": 0.9997229638908152,
+      "native_to_smooth_ratio": 0.11958159600896642,
+      "suppression_vs_smooth": 0.8804184039910335
+    }
   ]
 }

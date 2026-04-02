@@ -1,0 +1,37 @@
+scenario,scenario_description,surface_family,surface_id,species,stable_fraction,raw_fraction
+reference_lab,Current buffered in vitro reference used for the base analysis.,native_reference,native_1,E. coli,0.12387116786203206,0.005905189211991284
+reference_lab,Current buffered in vitro reference used for the base analysis.,native_reference,native_1,S. aureus,0.2378923583916799,0.018935648084790892
+reference_lab,Current buffered in vitro reference used for the base analysis.,native_reference,native_1,P. aeruginosa,0.14579652671378476,0.009003432351327176
+reference_lab,Current buffered in vitro reference used for the base analysis.,smooth_control,smooth_control,E. coli,0.9993438130411455,0.15866199856371568
+reference_lab,Current buffered in vitro reference used for the base analysis.,smooth_control,smooth_control,S. aureus,0.9847861490116439,0.1067016640914426
+reference_lab,Current buffered in vitro reference used for the base analysis.,smooth_control,smooth_control,P. aeruginosa,0.9999546649407118,0.20263931702429813
+protein_conditioned,Protein-conditioning film raises short-range adhesion and appendage engagement.,native_reference,native_1,E. coli,0.12799512384941877,0.006521638007441085
+protein_conditioned,Protein-conditioning film raises short-range adhesion and appendage engagement.,native_reference,native_1,S. aureus,0.24550696181191847,0.01961923192091922
+protein_conditioned,Protein-conditioning film raises short-range adhesion and appendage engagement.,native_reference,native_1,P. aeruginosa,0.1512284184165383,0.009710213560682622
+protein_conditioned,Protein-conditioning film raises short-range adhesion and appendage engagement.,smooth_control,smooth_control,E. coli,0.9996256675884578,0.16790148929488272
+protein_conditioned,Protein-conditioning film raises short-range adhesion and appendage engagement.,smooth_control,smooth_control,S. aureus,0.9875491360781777,0.11004512170369835
+protein_conditioned,Protein-conditioning film raises short-range adhesion and appendage engagement.,smooth_control,smooth_control,P. aeruginosa,0.999972312898143,0.21075259841253102
+low_shear_loading,Low-shear aqueous loading reduces replenishment while increasing residence time.,native_reference,native_1,E. coli,0.11318566287103018,0.00422151500134633
+low_shear_loading,Low-shear aqueous loading reduces replenishment while increasing residence time.,native_reference,native_1,S. aureus,0.20595135964067487,0.015888053842849453
+low_shear_loading,Low-shear aqueous loading reduces replenishment while increasing residence time.,native_reference,native_1,P. aeruginosa,0.13325337527765793,0.007283532522876575
+low_shear_loading,Low-shear aqueous loading reduces replenishment while increasing residence time.,smooth_control,smooth_control,E. coli,0.9965403654747279,0.1312638399232685
+low_shear_loading,Low-shear aqueous loading reduces replenishment while increasing residence time.,smooth_control,smooth_control,S. aureus,0.9562991343042502,0.08885860217396908
+low_shear_loading,Low-shear aqueous loading reduces replenishment while increasing residence time.,smooth_control,smooth_control,P. aeruginosa,0.9996009594911257,0.16684945538496238
+soft_polymer_interface,Compliant polymer contact increases effective mechanical conformity of early attachment.,native_reference,native_1,E. coli,0.12619580270028635,0.006254797413432909
+soft_polymer_interface,Compliant polymer contact increases effective mechanical conformity of early attachment.,native_reference,native_1,S. aureus,0.23953692166306487,0.019084535868064006
+soft_polymer_interface,Compliant polymer contact increases effective mechanical conformity of early attachment.,native_reference,native_1,P. aeruginosa,0.1474385179256898,0.009219345348483447
+soft_polymer_interface,Compliant polymer contact increases effective mechanical conformity of early attachment.,smooth_control,smooth_control,E. coli,0.999360324376595,0.1590815564426338
+soft_polymer_interface,Compliant polymer contact increases effective mechanical conformity of early attachment.,smooth_control,smooth_control,S. aureus,0.9851701827794968,0.10712871220717704
+soft_polymer_interface,Compliant polymer contact increases effective mechanical conformity of early attachment.,smooth_control,smooth_control,P. aeruginosa,0.9999556255713502,0.20299170233302388
+fabrication_rounding,Replication-induced tip rounding and partial feature-height loss.,native_reference,native_1_fabrication_rounding,E. coli,0.11171647856951163,0.003979323145082964
+fabrication_rounding,Replication-induced tip rounding and partial feature-height loss.,native_reference,native_1_fabrication_rounding,S. aureus,0.19927355155301513,0.015207967781206066
+fabrication_rounding,Replication-induced tip rounding and partial feature-height loss.,native_reference,native_1_fabrication_rounding,P. aeruginosa,0.12949790182627546,0.006742058916630596
+fabrication_rounding,Replication-induced tip rounding and partial feature-height loss.,smooth_control,smooth_control,E. coli,0.9993438130411455,0.15866199856371568
+fabrication_rounding,Replication-induced tip rounding and partial feature-height loss.,smooth_control,smooth_control,S. aureus,0.9847861490116439,0.1067016640914426
+fabrication_rounding,Replication-induced tip rounding and partial feature-height loss.,smooth_control,smooth_control,P. aeruginosa,0.9999546649407118,0.20263931702429813
+combined_device_envelope,"Protein-conditioned, low-shear, compliant silicone-device envelope with rounded features.",native_reference,native_1_combined_device_envelope,E. coli,0.10848729587811395,0.0034370488883317942
+combined_device_envelope,"Protein-conditioned, low-shear, compliant silicone-device envelope with rounded features.",native_reference,native_1_combined_device_envelope,S. aureus,0.17899187795731014,0.013030442477352423
+combined_device_envelope,"Protein-conditioned, low-shear, compliant silicone-device envelope with rounded features.",native_reference,native_1_combined_device_envelope,P. aeruginosa,0.11954846758887798,0.005239815936672093
+combined_device_envelope,"Protein-conditioned, low-shear, compliant silicone-device envelope with rounded features.",smooth_control,smooth_control,E. coli,0.9977064644307856,0.13804621107453535
+combined_device_envelope,"Protein-conditioned, low-shear, compliant silicone-device envelope with rounded features.",smooth_control,smooth_control,S. aureus,0.9609226757558317,0.09077777324264528
+combined_device_envelope,"Protein-conditioned, low-shear, compliant silicone-device envelope with rounded features.",smooth_control,smooth_control,P. aeruginosa,0.9997229638908152,0.1728552530977758

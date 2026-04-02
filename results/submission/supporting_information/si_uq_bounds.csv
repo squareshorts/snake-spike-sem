@@ -1,0 +1,8 @@
+parameter,lower,upper
+tip_radius_mu,0.08,0.3
+base_radius_mu,1.1,1.95
+sharpness_mu,1.4,3.3
+compliance_scale,0.7,1.4
+appendage_length_scale,0.6,1.8
+eps_diffusivity,0.08,0.22
+capture_rate,0.35,0.75
