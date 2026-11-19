@@ -1,0 +1,37 @@
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.86}
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\begin{longtable}{llcccl}
+\caption{Species coefficients. Cell dimensions and swimming speeds are literature-informed; the remaining coefficients are phenomenological (``eff.'') and were not fitted. $t_m$ denotes model time.}\label{tab:species}\\
+\toprule
+Quantity & Symbol & \textit{E.~coli} & \textit{S.~aureus} & \textit{P.~aeruginosa} & Unit \\
+\midrule
+body radius & $R$ & 0.45 & 0.5 & 0.4 & \si{\micrometre} \\
+body length & $L_c$ & 1.1 & 0 & 1.5 & \si{\micrometre} \\
+compliance & $c$ & 0.45 & 0.28 & 0.5 & -- \\
+body adhesion & $\gamma_b$ & 1.05 & 1.15 & 0.98 & eff. \\
+adhesion range & $\lambda_a$ & 0.2 & 0.18 & 0.22 & \si{\micrometre} \\
+compliance penalty & $k_c$ & 1 & 1.15 & 0.95 & eff. \\
+steric penalty & $k_s$ & 1.4 & 1.1 & 1.35 & eff. \\
+slope penalty & $\lambda_\nabla$ & 0.28 & 0.22 & 0.3 & eff. \\
+appendage count & $N_p$ & 6 & 2 & 8 & -- \\
+appendage length & $L_p$ & 1.15 & 0.45 & 1.55 & \si{\micrometre} \\
+appendage binding & $k_{\mathrm{bind}}$ & 0.18 & 0.06 & 0.22 & eff. \\
+appendage strength & $\gamma_p$ & 0.12 & 0.03 & 0.16 & eff. \\
+appendage slope penalty & $\mu_p$ & 0.12 & 0.08 & 0.15 & eff. \\
+swimming speed & $U$ & 29 & 0 & 45 & \si{\micrometre\per\second} \\
+transport sigma & $\sigma_t$ & 1.1 & 0.8 & 1.3 & \si{\micrometre} \\
+transport slope penalty & $\alpha_s$ & 1.2 & 0.7 & 1.35 & eff. \\
+transport relief penalty & $\alpha_r$ & 0.9 & 0.8 & 0.95 & eff. \\
+detach rate & $k_{TF}$ & 0.22 & 0.16 & 0.24 & $t_m^{-1}$ \\
+anchor rate & $k_{TA}$ & 0.58 & 0.64 & 0.62 & $t_m^{-1}$ \\
+reorientation rate & $k_{AT}$ & 0.18 & 0.1 & 0.2 & $t_m^{-1}$ \\
+eps activation rate & $k_{AE}$ & 0.62 & 0.88 & 0.6 & $t_m^{-1}$ \\
+maturation rate & $k_{EM}$ & 0.55 & 0.92 & 0.58 & $t_m^{-1}$ \\
+eps production & $s_{\mathrm{EPS}}$ & 0.34 & 0.48 & 0.33 & $t_m^{-1}$ \\
+\bottomrule
+\end{longtable}
+\endgroup

@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,float}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\DeclareSIUnit{\micrometre}{\text{\textmu}m}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{../results_v2/figures/}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thesection}{S\arabic{section}}
+\input{numbers.tex}
+\input{title.tex}
+\newcommand{\Ec}{\textit{E.~coli}}
+\newcommand{\Sa}{\textit{S.~aureus}}
+\newcommand{\Pa}{\textit{P.~aeruginosa}}
+
+\title{Electronic supplementary material for\\[4pt]\large \TITLE}
+\author{Bianca Cruz Neves and Antonio Pereira}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Model specification}
+
+\subsection{Blade arrays}
+Blades point along $+x$ and sit on a staggered lattice in a doubly periodic cell. Following tips are $p_f$ apart along the blade axis; adjacent columns are offset by $p_f/2$ along the axis and by $p_\perp=\sqrt{p_a^2-(p_f/2)^2}$ across it, so that $p_a$ is the distance between adjacent tips. The cell contains $n_x=\max(4,\mathrm{round}(36/p_f))$ blades along the axis and an even number $n_y$ of columns close to $36/p_\perp$; its sides are rounded to whole grid steps, which changes the following and adjacent-column spacings by at most $\Delta x/(2n_x)$ and $\Delta x/(2n_y)$, respectively. Blade $(i,j)$ has its base at
+\begin{equation}
+\mathbf b_{ij}=\big((i+\tfrac12[j\bmod2])\,L_x/n_x+\xi_x,\;(j+\tfrac12)\,L_y/n_y+\xi_y\big),\qquad \xi_x,\xi_y\sim\mathcal N(0,\sigma_j^2),
+\end{equation}
+and every random attribute of the blade is drawn from a generator seeded by the triple (lattice seed, $i$, $j$), so that a blade is identical on every grid. With $u\in[0,\ell_{ij}]$ the distance downstream of the base (modulo $L_x$) and $v$ the minimum-image lateral offset, the blade occupies $|v|\le\tfrac12w_{ij}(1-u/\ell_{ij})^{q}$ and its upper surface rises linearly from the scale sheet to the tip,
+\begin{equation}
+z_{ij}(u)=h_{ij}\,u/\ell_{ij},
+\end{equation}
+with $\ell_{ij}=\ell(1+0.05\zeta_1)$, $w_{ij}=w_0(1+0.08\zeta_2)$, $h_{ij}=h_t(1+0.1\zeta_3)$ and $\zeta_k\sim\mathcal N(0,1)$. Each tip stands over an elliptical pit in the sheet, centred at the tip with semi-axes $a_p$ along and $b_p$ across the blade and depth profile $d_p\sqrt{1-\rho^2}$, where $\rho$ is the normalised elliptical radius. Inside a pit only the blade that owns the pit is retained, so that the downstream blade bases are interrupted by the opening, as imaged by SEM (Fig.~1b of \cite{Peroutka2026}). The height field is $z=\max(-\text{pit},\max_{ij}z_{ij})+a_\eta\eta$, shifted to a minimum of zero. The background field $\eta=\sqrt{2/K}\sum_{k=1}^{K}\cos(\mathbf k_k\cdot\mathbf x+\varphi_k)$ uses $K=256$ modes with $\mathbf k_k\sim\mathcal N(\mathbf0,\mathbf I/2\ell_\eta^2)$ snapped to the reciprocal lattice of the cell; it has unit ensemble variance before reciprocal-lattice snapping and targets covariance $\exp(-r^2/4\ell_\eta^2)$. Snapping the finite set of wave vectors makes the realised covariance an approximation to this target while enforcing exact periodicity; the amplitude is grid-independent.
+
+Lattice spacings and projected blade length follow the SEM measurements of Peroutka et al.\ \cite{Peroutka2026}. Blade base width, taper and pit size were estimated from their high-magnification micrographs (Fig.~1b, \SI{5}{\micrometre} scale bar), and a two-dimensional autocorrelation of their \SI{10}{\micrometre} micrograph returned a lattice vector of \SI{4.7}{\micrometre} along the blade axis, consistent with the reported following-tip spacing. Tip height and pit depth cannot be read from top-view micrographs and enter with wide priors (table~\ref{tab:prior}).
+
+The Sharklet AF-type comparator consists of diamond units of seven parallel ribs, \SI{2}{\micrometre} wide and \SI{3}{\micrometre} tall, with lengths 4, 8, 12, 16, 12, 8 and \SI{4}{\micrometre} separated by \SI{2}{\micrometre}. Units tile on lattice vectors $(20,0)$ and $(10,16)$~\si{\micrometre} in a periodic $40\times\SI{32}{\micrometre}$ cell.
+
+\subsection{Sensing scale and contact cost}
+Geometric descriptors are computed on $\tilde z=G_{\ell_s}\ast z$, a Gaussian smoothing of physical width $\ell_s=\SI{0.25}{\micrometre}$, with slope $S=|\nabla\tilde z|$ from periodic central differences and curvature $C=|\nabla^2(G_{\ell_c}\ast\tilde z)|$, where $\ell_c=\SI{0.5}{\micrometre}$. For each footprint orientation $o$ (a disc for \Sa{}; spherocylinders at $0^\circ,45^\circ,90^\circ$ and $135^\circ$ for the rods), let $q_o=\tilde z_{\max,o}-\tilde z_{\mathrm{mean},o}$, $h_o=\tilde z_{\max,o}-\tilde z_{\min,o}$ and $d_o=q_o/(1+c)$. Then
+\begin{align}
+W_o&=-\gamma_be^{-d_o/\lambda_a}+\tfrac12k_cd_o^2+k_s[h_o-R(1.2+0.8c)]_+^2+\lambda_\nabla\bar S_o,\\
+b&=1-\exp\!\big[-k_{\mathrm{bind}}N_pe^{-\mu_pS_{\mathrm{sh}}}Q_{\mathrm{sh}}\big],\qquad W=\min_oW_o-\gamma_pb,\\
+p&=\min\{\exp[-\beta(W-W_{\mathrm{flat}})],2\},
+\end{align}
+where $Q(\mathbf x)=\max_o e^{-q_o(\mathbf x)/\lambda_a}$, and $S_{\mathrm{sh}}(\mathbf x)$ and $Q_{\mathrm{sh}}(\mathbf x)$ are the maxima of $S$ and $Q$ over the annulus centred at $\mathbf x$ with inner and outer radii $R+0.15L_c$ and $R+L_p+L_c/2$. The flat reference cost $W_{\mathrm{flat}}$ is computed for the same species on a flat surface.
+
+\subsection{Arrival}
+With the arrival weighting $b_{\mathrm{arr}}=\exp(-\alpha_sS-\alpha_rh_{\mathrm{ref}})$ and $h_{\mathrm{ref}}=\min_oh_o$,
+\begin{equation}
+J=\mathrm{clip}\Big(a\frac{V}{V_{\mathrm{flat}}},0,2.5\Big),\qquad V=\begin{cases}G_{\sigma_t}\ast\{b_{\mathrm{arr}}[1+0.018U e^{-0.15C}]\},&U>0,\\G_{0.7\sigma_t}\ast b_{\mathrm{arr}},&U=0,\end{cases}
+\end{equation}
+with $a=0.80+0.004U+0.012N_p+0.035L_p$ and $V_{\mathrm{flat}}=1+0.018U$ for motile and 1 for non-motile species.
+
+\subsection{Compartment dynamics}
+With $\kappa=[1-(T+A+E+M)]_+$ and $\bar p=\min(p,1)$, define
+\begin{align}
+H &= \mathrm{clip}[p(1+0.90b),0,1.8],\\
+Q_{\mathrm{ret}} &= \mathrm{clip}[e^{-0.22S}(1+0.60b+0.35p),0.30,2.2].
+\end{align}
+The transition rates are
+\begin{align}
+r_{FT}&=k_{\mathrm{cap}}J(0.55+0.45\bar p), & r_{TF}&=k_{TF}e^{0.25S}/Q_{\mathrm{ret}},\\
+r_{TA}&=k_{TA}H, & r_{AT}&=k_{AT}e^{0.15S}/\max(0.85+1.10b,0.35),\\
+r_{AE}&=k_{AE}(0.40+0.60\bar p+0.15b)G(e;e_{\mathrm{att}},w_{\mathrm{att}}),\\
+r_{EM}&=k_{EM}(0.50+0.50\bar p)G(e;e_{\mathrm{mat}},w_{\mathrm{mat}}).
+\end{align}
+The gate function and widths are
+\begin{align}
+G(e;e_0,w)&=\{1+\exp[-(e-e_0)/w]\}^{-1},\\
+w_{\mathrm{att}}&=\max(0.35e_{\mathrm{att}},5\times10^{-4}),\qquad
+w_{\mathrm{mat}}=\max(0.35e_{\mathrm{mat}},8\times10^{-4}).
+\end{align}
+The fields obey
+\begin{align}
+\dot F&=\rho(\lambda_{\mathrm{arr}}J-F)-r_{FT}F\kappa+r_{TF}T, &\dot T&=r_{FT}F\kappa-(r_{TF}+r_{TA})T+r_{AT}A,\\
+\dot A&=r_{TA}T-(r_{AT}+r_{AE})A, &\dot E&=r_{AE}A-r_{EM}E,\qquad\dot M=r_{EM}E,
+\end{align}
+from $F=\mathrm{clip}(\lambda_{\mathrm{arr}}J,0,1)$ and $T=A=E=M=e=0$, integrated by explicit Euler steps of $h=0.05$ model-time units. The site-capacity factor reduces capture as occupancy approaches one. The summed occupancy remained below one in every reported simulation; no post-update cap was applied to total occupancy (largest value across the ensemble \MaxOcc{}).
+
+\subsection{Extracellular polymeric substance}
+\begin{align}
+\partial_t e &= D_0m(\mathcal L)\mathcal L+D_{\mathrm{lin}}\nabla^2e\\
+&\quad+s_{\mathrm{EPS}}(0.35A+0.85E+1.25M)\max(0.65+0.45\bar p+0.10b,0)-k_de,\\
+\mathcal L &= \nabla^2(e^\nu),\qquad m(\mathcal L)=\{1+\exp[-(|\mathcal L|-\theta_y)/0.03]\}^{-1}.
+\end{align}
+The effective EPS field $e$ is dimensionless. The nonlinear yield-gated diffusion term is implemented in the form shown, without an outer divergence operator. Each state step applies the exact linear-diffusion propagator over two half-steps (Strang splitting); the remaining terms are integrated explicitly with sub-steps limited by $0.2\Delta x^2/D_{\mathrm{nl}}$, where
+\begin{equation}
+D_{\mathrm{nl}}=D_0\nu\max(e_{\max},10^{-8})^{\nu-1}
+\end{equation}
+sets the explicit-step scale and $e_{\max}$ is the current maximum EPS value over the cell.
+
+\subsection{Observable}
+At $t=4.5$ model-time units the retained activity is $B_{\mathrm{ret}}=\langle A+E+M\rangle$ over the cell. The model remaining fraction of geometry $j$ is $Y_j=B_{\mathrm{ret},j}/B_{\mathrm{ret,flat}}$, with the flat surface simulated under identical coefficients; across $N$ geometries $\bar Y=N^{-1}\sum_jY_j$ and $L=-\log_{10}\bar Y$.
+
+\section{Parameters}
+\input{tab_species.tex}
+\input{tab_shared.tex}
+
+\section{Observations}
+Figure~5 of Peroutka et al.\ \cite{Peroutka2026} reports the 48~h assay in two forms, which we digitised. Panel (a) gives CFU on the scale pair as a percentage of polystyrene, $11.8\pm1.3\%$ for \Ec{} and $22.4\pm8.3\%$ for \Sa{} (mean $\pm$ s.d.). Panel (b) gives $\log_{10}$ CFU~cm$^{-2}$ of 6.34 and $5.55\pm0.20$ for \Ec{} and 6.62 and $5.90\pm0.27$ for \Sa{} on polystyrene and scales, without an error bar for polystyrene. Panel (a) yields $\log_{10}$ reductions of \LRobsEc{} $\pm$ \SEobsEc{} and \LRobsSa{} $\pm$ \SEobsSa{} (s.e., three biological replicates, delta method), and panel (b) yields \LRobsBEc{} $\pm$ \SEobsBEc{} and \LRobsBSa{} $\pm$ \SEobsBSa{} when the polystyrene s.d.\ is taken equal to that on scales. The two panels average replicate ratios and replicate logarithms respectively, and the main text uses panel (a), which matches the reductions stated by the authors.
+
+\section{Geometric prior and ensemble}
+\input{tab_prior.tex}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{figS1_running.pdf}
+\caption{Ensemble $L=-\log_{10}\bar Y$ as reconstructions are added in a fixed order. The two halves of the ensemble give $L$ of \HalfEc{} (\Ec), \HalfSa{} (\Sa) and \HalfPa{} (\Pa).}
+\label{fig:running}
+\end{figure}
+
+\clearpage
+\section{Numerical verification}
+\input{tab_numerics.tex}
+
+\section{Sensitivity analyses}
+\input{tab_sobol_geom.tex}
+\input{tab_sobol_mech.tex}
+\input{tab_chem.tex}
+
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
+\end{document}

@@ -1,28 +1,29 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
-title: "snake-spike-sem: Hierarchical modelling pipeline for topography-controlled suppression of early bacterial colonisation on Python regius scales"
-version: 1.0.0
-doi: 10.5281/zenodo.19316098
+message: "If you use this software or its outputs, please cite the associated manuscript and this software release."
+title: "Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales: model and analysis code"
+version: 2.0.0
+date-released: 2026-11-19
 type: software
 license: MIT
 abstract: >-
-  Submission-ready software release for the hierarchical modelling pipeline used to
-  evaluate how reconstructed Python regius scale topography suppresses early bacterial
-  colonisation. The repository includes the model code, final manuscript-facing figures,
-  convergence checks, global sensitivity outputs, and submission summary tables.
+  Mechanistic model and reproducibility package for evaluating how the imbricated,
+  tapered blade arrays on Python regius scales influence species-dependent bacterial
+  suppression. The release includes model code, simulation outputs, numerical checks,
+  sensitivity analyses, manuscript figures and table-generation scripts.
 authors:
+  - family-names: Cruz Neves
+    given-names: Bianca
+    affiliation: "Federal University of Pará, Belém, Brazil"
   - family-names: Pereira
     given-names: Antonio
     affiliation: "Signal Processing Laboratory, Federal University of Pará, Belém, Brazil"
-  - family-names: Cruz Neves
-    given-names: Bianca
-    affiliation: "Institute of Chemistry, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil"
 keywords:
+  - bacterial adhesion
   - biofilm
-  - antimicrobial surfaces
+  - biomimetic surfaces
   - Python regius
-  - hierarchical modelling
-  - topography
-  - bacterial colonisation
+  - surface topography
+  - mechanistic modelling
+  - uncertainty quantification
 repository-code: "https://github.com/squareshorts/snake-spike-sem"
 url: "https://github.com/squareshorts/snake-spike-sem"

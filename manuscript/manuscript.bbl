@@ -1,0 +1,265 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ivanova et~al.(2012)Ivanova, Hasan, Webb, Truong, Watson, Watson,
+  Baulin, Pogodin, Wang, Tobin, L{\"o}bbe, and Crawford]{Ivanova2012}
+E.~P. Ivanova, J.~Hasan, H.~K. Webb, V.~K. Truong, G.~S. Watson, J.~A. Watson,
+  V.~A. Baulin, S.~Pogodin, J.~Y. Wang, M.~J. Tobin, C.~L{\"o}bbe, and R.~J.
+  Crawford.
+\newblock Natural bactericidal surfaces: mechanical rupture of
+  \textit{Pseudomonas aeruginosa} cells by cicada wings.
+\newblock \emph{Small}, 8\penalty0 (16):\penalty0 2489--2494, 2012.
+\newblock \doi{10.1002/smll.201200528}.
+
+\bibitem[Hasan et~al.(2013)Hasan, Crawford, and Ivanova]{Hasan2013}
+J.~Hasan, R.~J. Crawford, and E.~P. Ivanova.
+\newblock Antibacterial surfaces: the quest for a new generation of
+  biomaterials.
+\newblock \emph{Trends Biotechnol.}, 31\penalty0 (5):\penalty0 295--304, 2013.
+\newblock \doi{10.1016/j.tibtech.2013.01.017}.
+
+\bibitem[Wu et~al.(2018)Wu, Zhang, Liu, Suo, and Li]{Wu2018}
+S.~Wu, B.~Zhang, Y.~Liu, X.~Suo, and H.~Li.
+\newblock Influence of surface topography on bacterial adhesion: a review.
+\newblock \emph{Biointerphases}, 13\penalty0 (6):\penalty0 060801, 2018.
+\newblock \doi{10.1116/1.5054057}.
+
+\bibitem[Scardino et~al.(2008)Scardino, Guenther, and de~Nys]{Scardino2008}
+A.~J. Scardino, J.~Guenther, and R.~de~Nys.
+\newblock Attachment point theory revisited: the fouling response to a
+  microtextured matrix.
+\newblock \emph{Biofouling}, 24\penalty0 (1):\penalty0 45--53, 2008.
+\newblock \doi{10.1080/08927010701784391}.
+
+\bibitem[Hochbaum and Aizenberg(2010)]{Hochbaum2010}
+A.~I. Hochbaum and J.~Aizenberg.
+\newblock Bacteria pattern spontaneously on periodic nanostructure arrays.
+\newblock \emph{Nano Lett.}, 10\penalty0 (9):\penalty0 3717--3721, 2010.
+\newblock \doi{10.1021/nl102290k}.
+
+\bibitem[Epstein et~al.(2011)Epstein, Hochbaum, Kim, and
+  Aizenberg]{Epstein2011}
+A.~K. Epstein, A.~I. Hochbaum, P.~Kim, and J.~Aizenberg.
+\newblock Control of bacterial biofilm growth on surfaces by nanostructural
+  mechanics and geometry.
+\newblock \emph{Nanotechnology}, 22\penalty0 (49):\penalty0 494007, 2011.
+\newblock \doi{10.1088/0957-4484/22/49/494007}.
+
+\bibitem[Chung et~al.(2007)Chung, Schumacher, Sampson, Burne, Antonelli, and
+  Brennan]{Chung2007}
+K.~K. Chung, J.~F. Schumacher, E.~M. Sampson, R.~A. Burne, P.~J. Antonelli, and
+  A.~B. Brennan.
+\newblock Impact of engineered surface microtopography on biofilm formation of
+  \textit{Staphylococcus aureus}.
+\newblock \emph{Biointerphases}, 2\penalty0 (2):\penalty0 89--94, 2007.
+\newblock \doi{10.1116/1.2751405}.
+
+\bibitem[May et~al.(2014)May, Hoffman, Sogo, Parker, O'Toole, Brennan, and
+  Reddy]{May2014}
+R.~M. May, M.~G. Hoffman, M.~J. Sogo, A.~E. Parker, G.~A. O'Toole, A.~B.
+  Brennan, and S.~T. Reddy.
+\newblock Micro-patterned surfaces reduce bacterial colonization and biofilm
+  formation in vitro: potential for enhancing endotracheal tube designs.
+\newblock \emph{Clin. Transl. Med.}, 3:\penalty0 8, 2014.
+\newblock \doi{10.1186/2001-1326-3-8}.
+
+\bibitem[Xu et~al.(2017)Xu, Wei, Mettetal, Han, Rau, Tie, May, Pathe, Reddy,
+  Sullivan, Parker, Maul, Brennan, and Mann]{Xu2017}
+B.~Xu, Q.~Wei, M.~R. Mettetal, J.~Han, L.~Rau, J.~Tie, R.~M. May, E.~T. Pathe,
+  S.~T. Reddy, L.~Sullivan, A.~E. Parker, D.~H. Maul, A.~B. Brennan, and E.~E.
+  Mann.
+\newblock Surface micropattern reduces colonization and medical
+  device-associated infections.
+\newblock \emph{J. Med. Microbiol.}, 66\penalty0 (11):\penalty0 1692--1698,
+  2017.
+\newblock \doi{10.1099/jmm.0.000600}.
+
+\bibitem[Romero et~al.(2025)]{Romero2025}
+M.~Romero et~al.
+\newblock Combinatorial discovery of microtopographical landscapes that resist
+  biofilm formation through quorum sensing mediated autolubrication.
+\newblock \emph{Nat. Commun.}, 16\penalty0 (1):\penalty0 5295, 2025.
+\newblock \doi{10.1038/s41467-025-60567-x}.
+
+\bibitem[Peroutka et~al.(2026)Peroutka, Navratilova, Jencova, Jiresova,
+  Mullerova, and Lencova]{Peroutka2026}
+V.~Peroutka, K.~Navratilova, V.~Jencova, J.~Jiresova, J.~Mullerova, and
+  S.~Lencova.
+\newblock Microarchitecture of \textit{Python regius} scale surface: a natural
+  strategy for bacterial adhesion prevention.
+\newblock \emph{ACS Omega}, 11\penalty0 (11):\penalty0 18036--18043, 2026.
+\newblock \doi{10.1021/acsomega.5c12739}.
+
+\bibitem[Abdel-Aal et~al.(2010)Abdel-Aal, El~Mansori, and
+  Mezghani]{AbdelAal2010}
+H.~A. Abdel-Aal, M.~El~Mansori, and S.~Mezghani.
+\newblock Multi-scale investigation of surface topography of ball python
+  (\textit{Python regius}) shed skin in comparison to human skin.
+\newblock \emph{Tribol. Lett.}, 37\penalty0 (3):\penalty0 517--527, 2010.
+\newblock \doi{10.1007/s11249-009-9547-y}.
+
+\bibitem[Sulochana et~al.(2022)Sulochana, Biswas, Banuprasad, and
+  Chakraborty]{Sulochana2022}
+G.~N.~M. Sulochana, P.~Biswas, T.~N. Banuprasad, and S.~Chakraborty.
+\newblock Fabricating antipathogenic interfaces via nanoscale topographies
+  inspired from snake skin.
+\newblock \emph{ACS Appl. Bio Mater.}, 5\penalty0 (2):\penalty0 862--872, 2022.
+\newblock \doi{10.1021/acsabm.1c01243}.
+
+\bibitem[Ammar et~al.(2015)Ammar, Swailes, Bridgens, and Chen]{Ammar2015}
+Y.~Ammar, D.~Swailes, B.~Bridgens, and J.~Chen.
+\newblock Influence of surface roughness on the initial formation of biofilm.
+\newblock \emph{Surf. Coat. Technol.}, 284:\penalty0 410--416, 2015.
+\newblock \doi{10.1016/j.surfcoat.2015.07.062}.
+
+\bibitem[Hermansson(1999)]{Hermansson1999}
+M.~Hermansson.
+\newblock The {DLVO} theory in microbial adhesion.
+\newblock \emph{Colloids Surf. B Biointerfaces}, 14\penalty0 (1--4):\penalty0
+  105--119, 1999.
+\newblock \doi{10.1016/S0927-7765(99)00029-6}.
+
+\bibitem[Bos et~al.(1999)Bos, van~der Mei, and Busscher]{Bos1999}
+R.~Bos, H.~C. van~der Mei, and H.~J. Busscher.
+\newblock Physico-chemistry of initial microbial adhesive interactions---its
+  mechanisms and methods for study.
+\newblock \emph{FEMS Microbiol. Rev.}, 23\penalty0 (2):\penalty0 179--230,
+  1999.
+\newblock \doi{10.1111/j.1574-6976.1999.tb00396.x}.
+
+\bibitem[Li and Chen(2016)]{Li2016}
+X.~Li and T.~Chen.
+\newblock Enhancement and suppression effects of a nanopatterned surface on
+  bacterial adhesion.
+\newblock \emph{Phys. Rev. E}, 93\penalty0 (5):\penalty0 052419, 2016.
+\newblock \doi{10.1103/PhysRevE.93.052419}.
+
+\bibitem[Lazzini et~al.(2021)Lazzini, Lutey, Romoli, and Fuso]{Lazzini2021}
+G.~Lazzini, A.~H.~A. Lutey, L.~Romoli, and F.~Fuso.
+\newblock Molecular dynamics model for the antibactericity of textured
+  surfaces.
+\newblock \emph{Colloids Surf. B Biointerfaces}, 199:\penalty0 111504, 2021.
+\newblock \doi{10.1016/j.colsurfb.2020.111504}.
+
+\bibitem[Bellanato et~al.(2026)Bellanato, Benito~Clemente, and
+  Royo]{Bellanato2026}
+I.~Bellanato, A.~Benito~Clemente, and P.~Royo.
+\newblock A computational model for the effect of surface topography on the
+  antibacterial character of a nanocoating.
+\newblock \emph{Appl. Phys. A}, 132\penalty0 (8):\penalty0 740, 2026.
+\newblock \doi{10.1007/s00339-026-09874-8}.
+
+\bibitem[Chathoth et~al.(2022)Chathoth, Fostier, Martin, Baysse, and
+  Mah{\'e}]{Chathoth2022}
+K.~Chathoth, L.~Fostier, B.~Martin, C.~Baysse, and F.~Mah{\'e}.
+\newblock A multi-skilled mathematical model of bacterial attachment in
+  initiation of biofilms.
+\newblock \emph{Microorganisms}, 10\penalty0 (4):\penalty0 686, 2022.
+\newblock \doi{10.3390/microorganisms10040686}.
+
+\bibitem[Zheng et~al.(2021)]{Zheng2021}
+S.~Zheng et~al.
+\newblock Implication of surface properties, bacterial motility, and
+  hydrodynamic conditions on bacterial surface sensing and their initial
+  adhesion.
+\newblock \emph{Front. Bioeng. Biotechnol.}, 9:\penalty0 643722, 2021.
+\newblock \doi{10.3389/fbioe.2021.643722}.
+
+\bibitem[An and Friedman(1998)]{An1998}
+Y.~H. An and R.~J. Friedman.
+\newblock Concise review of mechanisms of bacterial adhesion to biomaterial
+  surfaces.
+\newblock \emph{J. Biomed. Mater. Res.}, 43\penalty0 (3):\penalty0 338--348,
+  1998.
+\newblock \doi{10.1002/(SICI)1097-4636(199823)43:3<338::AID-JBM16>3.0.CO;2-B}.
+
+\bibitem[Berne et~al.(2018)Berne, Ellison, Ducret, and Brun]{Berne2018}
+C.~Berne, C.~K. Ellison, A.~Ducret, and Y.~V. Brun.
+\newblock Bacterial adhesion at the single-cell level.
+\newblock \emph{Nat. Rev. Microbiol.}, 16\penalty0 (10):\penalty0 616--627,
+  2018.
+\newblock \doi{10.1038/s41579-018-0057-5}.
+
+\bibitem[Hoffman et~al.(2015)]{Hoffman2015}
+M.~D. Hoffman et~al.
+\newblock Timescales and frequencies of reversible and irreversible adhesion
+  events of single bacterial cells.
+\newblock \emph{Anal. Chem.}, 87\penalty0 (24):\penalty0 12032--12039, 2015.
+\newblock \doi{10.1021/acs.analchem.5b02087}.
+
+\bibitem[Carniello et~al.(2018)Carniello, Peterson, van~der Mei, and
+  Busscher]{Carniello2018}
+V.~Carniello, B.~W. Peterson, H.~C. van~der Mei, and H.~J. Busscher.
+\newblock Physico-chemistry from initial bacterial adhesion to
+  surface-programmed biofilm growth.
+\newblock \emph{Adv. Colloid Interface Sci.}, 261:\penalty0 1--14, 2018.
+\newblock \doi{10.1016/j.cis.2018.10.005}.
+
+\bibitem[Dufr{\^e}ne and Persat(2020)]{Dufrene2020}
+Y.~F. Dufr{\^e}ne and A.~Persat.
+\newblock Mechanomicrobiology: how bacteria sense and respond to forces.
+\newblock \emph{Nat. Rev. Microbiol.}, 18\penalty0 (4):\penalty0 227--240,
+  2020.
+\newblock \doi{10.1038/s41579-019-0314-2}.
+
+\bibitem[Jenal et~al.(2017)Jenal, Reinders, and Lori]{Jenal2017}
+U.~Jenal, A.~Reinders, and C.~Lori.
+\newblock Cyclic di-{GMP}: second messenger extraordinaire.
+\newblock \emph{Nat. Rev. Microbiol.}, 15\penalty0 (5):\penalty0 271--284,
+  2017.
+\newblock \doi{10.1038/nrmicro.2016.190}.
+
+\bibitem[Flemming et~al.(2016)Flemming, Wingender, Szewzyk, Steinberg, Rice,
+  and Kjelleberg]{Flemming2016}
+H.-C. Flemming, J.~Wingender, U.~Szewzyk, P.~Steinberg, S.~A. Rice, and
+  S.~Kjelleberg.
+\newblock Biofilms: an emergent form of bacterial life.
+\newblock \emph{Nat. Rev. Microbiol.}, 14\penalty0 (9):\penalty0 563--575,
+  2016.
+\newblock \doi{10.1038/nrmicro.2016.94}.
+
+\bibitem[Di~Martino(2018)]{DiMartino2018}
+P.~Di~Martino.
+\newblock Extracellular polymeric substances, a key element in understanding
+  biofilm phenotype.
+\newblock \emph{AIMS Microbiol.}, 4\penalty0 (2):\penalty0 274--288, 2018.
+\newblock \doi{10.3934/microbiol.2018.2.274}.
+
+\bibitem[Hou et~al.(2018)Hou, Veeregowda, van~de Belt-Gritter, Busscher, and
+  van~der Mei]{Hou2018}
+J.~Hou, D.~H. Veeregowda, B.~van~de Belt-Gritter, H.~J. Busscher, and H.~C.
+  van~der Mei.
+\newblock Extracellular polymeric matrix production and relaxation under fluid
+  shear and mechanical pressure in \textit{Staphylococcus aureus} biofilms.
+\newblock \emph{Appl. Environ. Microbiol.}, 84\penalty0 (1):\penalty0
+  e01516--17, 2018.
+\newblock \doi{10.1128/AEM.01516-17}.
+
+\bibitem[Tang et~al.(2024)Tang, Wei, Liu, Chang, and Zheng]{Tang2024}
+Y.~Tang, J.~Wei, Y.~Liu, Y.~Chang, and J.~Zheng.
+\newblock Machine learning aided design and optimization of antifouling
+  surfaces.
+\newblock \emph{Langmuir}, 40\penalty0 (43):\penalty0 22504--22515, 2024.
+\newblock \doi{10.1021/acs.langmuir.4c03553}.
+
+\bibitem[LeFevre et~al.(2025)]{LeFevre2025}
+T.~B. LeFevre et~al.
+\newblock Evaluation of antifouling surfaces using a method that employs mussel
+  larvae settlement quantified by machine learning.
+\newblock \emph{Biofouling}, 41\penalty0 (8):\penalty0 783--797, 2025.
+\newblock \doi{10.1080/08927014.2025.2534051}.
+
+\bibitem[Saltelli et~al.(2010)Saltelli, Annoni, Azzini, Campolongo, Ratto, and
+  Tarantola]{Saltelli2010}
+A.~Saltelli, P.~Annoni, I.~Azzini, F.~Campolongo, M.~Ratto, and S.~Tarantola.
+\newblock Variance based sensitivity analysis of model output. {D}esign and
+  estimator for the total sensitivity index.
+\newblock \emph{Comput. Phys. Commun.}, 181\penalty0 (2):\penalty0 259--270,
+  2010.
+\newblock \doi{10.1016/j.cpc.2009.09.018}.
+
+\end{thebibliography}

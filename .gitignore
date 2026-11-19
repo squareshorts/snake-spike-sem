@@ -2,6 +2,11 @@ __pycache__/
 **/__pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
 outputs/
 outputs_*/
 *.aux
@@ -9,5 +14,6 @@ outputs_*/
 *.out
 *.fdb_latexmk
 *.fls
+*.synctex.gz
 Thumbs.db
 .DS_Store
