@@ -1,14 +1,14 @@
 {
-  "title": "Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales: model and analysis code",
-  "version": "2.0.0",
+  "title": "Lateral blade packing predicts bacterial retention on reconstructed ball python scales: model and analysis code",
+  "version": "2.2.1",
   "upload_type": "software",
   "access_right": "open",
   "language": "eng",
-  "description": "Version 2.0.0 of the blade-array model and reproducibility package associated with the manuscript 'Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales'. The archive includes the active model implementation, analysis scripts, simulation-level CSV outputs, derived statistical tables, manuscript figures, LaTeX source, supplementary-material source and compiled submission PDFs. The geometric and mechanistic sensitivity analyses, numerical verification and external Sharklet comparison are included.",
+  "description": "Version 2.2.1 of the blade-array model and reproducibility package for the manuscript 'Lateral blade packing predicts bacterial retention on reconstructed ball python scales'. The archive includes the model implementation, analysis scripts, simulation-level CSV outputs, derived tables, manuscript figures and LaTeX sources. It covers the production ensemble, numerical verification, geometric and mechanistic Sobol analyses, the Sharklet AF comparison, alternative arrival formulations, independently varied species coefficients and the geometric control experiments (coverage-matched spacing, unmeasured relief factorial, fixed-density row phase and grid refinement).",
   "creators": [
     {
       "name": "Cruz Neves, Bianca",
-      "affiliation": "Federal University of Pará, Belém, Brazil"
+      "affiliation": "Institute of Chemistry, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil"
     },
     {
       "name": "Pereira, Antonio",

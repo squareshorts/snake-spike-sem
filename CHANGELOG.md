@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.2.1 — 2026-11-20
+
+- Corrective archive release of the verified v2.2.0 geometric-control source, outputs and reproducibility scripts.
+- Uses a new Git tag because the previously created `v2.2.0` tag points to the same commit as `v2.0.0`.
+- No scientific model changes or newly computed numerical results are introduced by this packaging correction.
+- Release source and submission metadata now identify version 2.2.1.
+
+## 2.2.0 — 2026-11-20
+
+- Added `ModelConfig.arrival_mode` (`dual`, `supply`, `capture`) to place the near-surface arrival field in cell supply, capture or both; `dual` is the default and reproduces 2.0.0 exactly.
+- Added `BladeGeometry.row_phase` for the offset of alternating blade columns; the default 0.5 reproduces 2.0.0 exactly.
+- Added `analysis_controls.py`, `tables_controls.py` and `figures_controls.py` with arrival-formulation, spacing-sweep, independent-coefficient, coverage-matched, relief-factorial, row-phase and grid-refinement experiments. Outputs are in `results_v2/controls/`.
+- Corrected the first author's affiliation.
+
 ## 2.0.0 — 2026-11-19
 
 Major model and repository revision for the Journal of the Royal Society Interface manuscript.

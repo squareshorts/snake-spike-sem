@@ -64,3 +64,17 @@ def test_blade_array_ratio_is_finite_and_capacity_limited():
         assert result["Y"] > 0
         assert np.isfinite(result["occ_max"])
         assert 0 <= result["occ_max"] < 1
+
+
+def test_arrival_modes_and_row_phase():
+    from dataclasses import replace
+    from snake_model.model import SPECIES, BladeGeometry, FlatCache, ModelConfig, build_blade_surface, ratio
+    cfg = ModelConfig(dx=0.3, record_times=(1.0, 4.5))
+    assert cfg.arrival_mode == "dual" and BladeGeometry().row_phase == 0.5
+    z, _ = build_blade_surface(BladeGeometry(), cfg)
+    c = FlatCache()
+    y = {m: ratio(z, SPECIES["E. coli"], replace(cfg, arrival_mode=m), c)["Y"] for m in ("dual", "supply", "capture")}
+    assert y["dual"] < y["supply"] and y["dual"] < y["capture"]
+    z0, i0 = build_blade_surface(BladeGeometry(row_phase=0.0), cfg)
+    z5, i5 = build_blade_surface(BladeGeometry(row_phase=0.5), cfg)
+    assert i0["n_blades"] == i5["n_blades"] and z0.shape == z5.shape

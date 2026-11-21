@@ -1,12 +1,12 @@
-# Lateral packing of imbricated blades and bacterial suppression
+# Lateral blade packing and bacterial retention on ball python scales
 
-**Software release:** `2.0.0`  
-**Manuscript:** *Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales*  
+**Software release:** `2.2.1`
+**Manuscript:** *Lateral blade packing predicts bacterial retention on reconstructed ball python scales*
 **Target journal:** Journal of the Royal Society Interface
 
 This repository contains the blade-array model, analysis pipeline, numerical outputs, manuscript source and electronic supplementary material for the study of species-dependent bacterial suppression on *Python regius* scales.
 
-The current release implements tapered, imbricated blades with tip-associated pits, cell-scale contact energetics, near-surface arrival, capacity-limited compartment dynamics and an effective extracellular-polymeric-substance field. Each patterned surface is compared with a flat reference under the same species coefficients. The analysis includes a 40-reconstruction production ensemble, numerical verification, mechanism ablations, geometric design maps, material-adhesion sensitivity, time-course analysis, and geometric and mechanistic Sobol designs.
+The current release implements tapered, imbricated blades with tip-associated pits, cell-scale contact energetics, near-surface arrival, capacity-limited compartment dynamics and an effective extracellular-polymeric-substance field. Each patterned surface is compared with a flat reference under the same species coefficients. The analysis includes a 40-reconstruction production ensemble, numerical verification, mechanism ablations, geometric design maps, material-adhesion sensitivity, time-course analysis, geometric and mechanistic Sobol designs, alternative arrival formulations, independently varied species coefficients and geometric control experiments.
 
 ## Repository layout
 
@@ -15,6 +15,9 @@ The current release implements tapered, imbricated blades with tip-associated pi
 - `stats_v2.py` — bootstrap endpoint mapping, prediction intervals and Sobol summaries.
 - `figures_v2.py` — manuscript and supplementary figure generation.
 - `make_tables.py` — LaTeX tables and numerical macros generated from saved outputs.
+- `analysis_controls.py` — arrival-formulation, spacing-sweep, independent-coefficient and geometric control experiments.
+- `tables_controls.py`, `figures_controls.py` — tables, macros and figures for the control experiments.
+- `results_v2/controls/` — simulation-level CSV outputs, tables and figures of the control experiments.
 - `results_v2/data/` — simulation-level CSV outputs and summary JSON.
 - `results_v2/tables/` — derived statistical tables.
 - `results_v2/figures/` — figure source outputs in PDF and PNG formats.
@@ -83,21 +86,28 @@ python -m pytest
 
 To rebuild the three PDFs locally, run `build_manuscripts.ps1` (Windows) or `./build_manuscripts.sh` (Unix-like systems). The source can also be compiled in Overleaf with `manuscript/manuscript.tex` as the main manuscript file.
 
-## Install this release into the existing Windows repository
+## Control experiments
 
-The supplied release ZIP contains `INSTALL_JRSI_V2.ps1` and `PUBLISH_GITHUB.ps1`. Extract it to a separate directory; do not extract it over the existing repository. In PowerShell, adjust the download path if necessary:
+`analysis_controls.py` takes one stage name and writes its CSV to `results_v2/controls/`:
 
-```powershell
-Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\snake-spike-sem-v2.0.0.zip" `
-  -DestinationPath "C:\work\snake_model_v2_package" -Force
-
-& "C:\work\snake_model_v2_package\snake-spike-sem-v2.0.0\INSTALL_JRSI_V2.ps1" `
-  -TargetRoot "C:\work\snake_model"
+```bash
+for s in structural spacing coverage factorial phase indep matched_grid grid; do python analysis_controls.py $s; done
+python tables_controls.py
+python figures_controls.py
 ```
 
-The installer verifies that the existing repository is `squareshorts/snake-spike-sem`, is on `main`, and matches `origin/main` before moving any files. It preserves the `.git` directory and backs up the previous working tree to a sibling `snake_model.pre_jrsi_<timestamp>` directory. Install the Python dependencies, then run `python -m pytest -q` from `C:\work\snake_model`.
+| Stage | Design |
+|---|---|
+| `structural` | 40 production reconstructions under dual-pathway, supply-only and capture-only arrival |
+| `spacing` | six adjacent-tip spacings (3.4–5.9 µm), four seeds, three arrival formulations |
+| `coverage` | spacings 3.8, 4.4 and 5.2 µm at matched projected blade coverage (0.35 with pits, 0.46 without), eight seeds |
+| `factorial` | spacing × tip height × pit depth over eight nuisance-geometry draws (144 surfaces) |
+| `phase` | row offset 0, 0.25 and 0.5 at fixed density, with and without pits, eight seeds |
+| `indep` | 160 geometries with species-specific ±20% coefficient, β and control-adhesion multipliers (Δx = 0.15 µm) |
+| `matched_grid` | coverage-matched contrast recomputed at Δx = 0.07 µm |
+| `grid` | close-packed and wide arrays at Δx = 0.15, 0.10, 0.07 and 0.05 µm |
 
-When the tests pass, run `./PUBLISH_GITHUB.ps1` from the repository root. The script repeats the synchronization checks and tests, shows the pending Git changes, and requires the exact confirmation `PUBLISH` before committing, pushing `main`, and creating and pushing tag `v2.0.0`. If GitHub CLI (`gh`) is installed, it can also create the GitHub Release. Otherwise, create the release from the tag on GitHub. Zenodo archiving and the new version DOI are subsequent steps; the v1.0.0 DOI is not valid for this model.
+`ModelConfig.arrival_mode` and `BladeGeometry.row_phase` default to the 2.0.0 behaviour (`"dual"`, `0.5`), so all 2.0.0 outputs are unchanged.
 
 ## Data provenance
 
@@ -107,9 +117,7 @@ See [`DATA_PROVENANCE.md`](DATA_PROVENANCE.md) for the observation sources and a
 
 ## Citation and archival release
 
-The active code and manuscript package are version `2.0.0`. The earlier GitHub/Zenodo `1.0.0` release describes a spike-based precursor and is not the implementation used in this manuscript. Its DOI, `10.5281/zenodo.19316098`, must not be cited as the archive for the present blade-array model.
-
-After the `v2.0.0` GitHub release is created, enable or synchronise the repository in Zenodo and use the newly minted version DOI in the submission system and in `CITATION.cff`. The version-specific DOI is intentionally not guessed or copied from the earlier release.
+The complete geometric-control analyses are included in the GitHub release [`v2.2.1`](https://github.com/squareshorts/snake-spike-sem/releases/tag/v2.2.1). Use the version-specific Zenodo DOI minted from this tag for the journal submission. Earlier archived releases, including `10.5281/zenodo.24378494` (version 2.0.0) and `10.5281/zenodo.24408778` (tagged source identical to version 2.0.0), do not contain the present geometric-control analyses.
 
 ## License
 

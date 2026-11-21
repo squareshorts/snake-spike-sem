@@ -1,50 +1,31 @@
-# Journal of the Royal Society Interface — submission metadata
+# JRSI submission metadata — 20 November 2026
 
-This file collects the statements and metadata entered in the journal submission system. The Royal Society submission system collects the end-section declarations separately; they are not duplicated in the manuscript PDF.
+**Title:** Lateral blade packing predicts bacterial retention on reconstructed ball python scales
 
-## Manuscript details
+**Article type:** Research Article
 
-**Title**
-
-Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales
-
-**Article type**
-
-Research Article
-
-**Keywords**
-
-bacterial adhesion; biomimetic surfaces; surface topography; mechanistic modelling; uncertainty quantification; Sharklet
+**Keywords:** bacterial adhesion; biomimetic surfaces; surface topography; mechanistic modelling; uncertainty quantification; biofilm
 
 ## Data accessibility
+Code, numerical outputs and analysis scripts, including the geometric controls, are available in the version 2.2.1 release at https://github.com/squareshorts/snake-spike-sem/releases/tag/v2.2.1. The Zenodo DOI for this exact release will be entered when minted.
 
-The model code, reconstructed blade-array inputs, simulation-level outputs, statistical analysis scripts, and figure- and table-generation files are publicly available at https://github.com/squareshorts/snake-spike-sem. The experimental observations used in the analyses were digitised from published sources cited in the article: Peroutka et al. (2026), May et al. (2014) and Xu et al. (2017). No new bacterial experimental data were generated for this study.
-
-Use the public repository URL after the `v2.0.0` commit has been pushed. The earlier Zenodo DOI `10.5281/zenodo.19316098` refers to the spike-based predecessor and must not be entered as the archive for this manuscript. Add the new version DOI after Zenodo has archived the `v2.0.0` release.
-
-## Ethics statement
-
-This work used only published experimental data and computational simulations. It involved no new experiments with animals or human participants.
+## Ethics
+The work used published measurements and computational simulations, with no new experiments involving human participants or animals.
 
 ## Declaration of AI use
-
-Claude (Anthropic) assisted with drafting and refinement of the computational model and analysis code and with language editing. ChatGPT (GPT-6, OpenAI) was used to review and refactor the code, check consistency between equations, implementation and reported numerical results, and edit the manuscript. The authors specified the scientific questions and model structure, reviewed the code, executed and checked the analyses, and take full responsibility for the scientific content and conclusions.
-
-The authors should verify that this statement accurately describes the contributions of each tool before submission. Retain the prompts and outputs used in the work in case the journal requests them.
+Claude (Anthropic) and ChatGPT (OpenAI) assisted with code development and language editing. The authors verified all code, analyses and text and take full responsibility for the content.
 
 ## Competing interests
-
-The authors declare that they have no competing interests.
+The authors declare no competing interests.
 
 ## Funding
-
 This work was supported by the Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq; grant 309589/2023-1 to A.P.) and by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
 
-## Author contributions (CRediT)
-
-- **Bianca Cruz Neves:** conceptualization; methodology; software; formal analysis; writing – original draft; writing – review and editing.
-- **Antonio Pereira:** conceptualization; methodology; formal analysis; writing – original draft; writing – review and editing; supervision; funding acquisition.
+## Author contributions
+Bianca Cruz Neves: conceptualization, methodology, software, formal analysis, writing—original draft, writing—review and editing. Antonio Pereira: conceptualization, methodology, formal analysis, writing—original draft, writing—review and editing, supervision and funding acquisition.
 
 ## Supplementary material
+Electronic supplementary material: model specification, parameters, observation transforms, numerical verification, sensitivity analyses, arrival-formulation alternatives, independent species coefficients, small-sample diagnostic and geometric control experiments.
 
-The seven-page electronic supplementary material contains the mathematical model specification, species and shared parameter tables, digitised observations, geometric priors, ensemble convergence, grid/time-step verification, and geometric and mechanistic sensitivity analyses.
+## Media summary
+Ball python scales carry tiny overlapping blades and retain fewer bacteria than plastic. A computational model of how cells reach and stay on these blades predicts that the spacing between neighbouring blade columns sets how strongly bacteria are suppressed, with closer columns giving fewer retained cells. The prediction holds when the area covered by blades is kept constant and across the uncertain heights of the blades and depths of the pits beneath them. Experiments on keratin surfaces made with a controlled range of blade spacings would test it directly.

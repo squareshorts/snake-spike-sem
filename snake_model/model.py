@@ -1,28 +1,13 @@
-"""Revised colonisation model (v2).
+"""Colonisation model for imbricated blade arrays and reference topographies.
 
-Changes relative to the archived v1 implementation in ``legacy/v1_hierarchical.py``, each addressing a defect found in review:
-
-1. Observable.  The assay reports CFU(patterned)/CFU(smooth).  v1 pushed an absolute
-   activity score through a steep two-parameter sigmoid fitted to two numbers.  v2
-   simulates the patterned surface and the flat reference with identical physics and
-   reports the ratio of retained surface-associated activity, Y = B_pattern / B_flat.
-   No parameter is fitted to obtain Y.
-2. Energetic reference.  v1 normalised attachment propensity and arrival to their own
-   per-surface maxima, which removes absolute differences between surfaces.  v2 refers
-   both to the analytically computed flat-surface values shared by all geometries.
-3. State model.  v1 clipped each activity field independently to [0, 1], so occupancies
-   could sum above one.  The current model uses a capacity-limited compartment system:
-   the site-capacity factor reduces capture as surface occupancy approaches one.  The
-   summed occupancy remains below one in all reported simulations.
-4. Numerics in physical units.  v1 smoothed EPS with a Gaussian of 0.6 *pixels* after
-   every step and generated background roughness by pixel-wise filtering, so both the
-   effective diffusivity and the roughness amplitude changed with dx and dt.  v2 writes
-   the smoothing as an explicit linear diffusivity (um^2 per model-time unit) integrated
-   with CFL-limited sub-steps, and builds roughness from grid-independent random Fourier
-   modes with a prescribed amplitude and correlation length.
-5. Boundary effects.  v1 extended edge values outside a finite 36 um window.  v2 uses
-   doubly periodic domains commensurate with the blade lattice (and with the Sharklet
-   unit cell), so every operator wraps and no boundary enters the readout.
+Each patterned surface and a flat reference are simulated with identical physics, and the
+model reports the ratio of retained surface-associated activity, Y = B_pattern / B_flat,
+the quantity measured by CFU assays against a smooth control.  Attachment propensity and
+arrival are referenced to the analytically computed flat-surface values of each species.
+Surface-associated cells follow a capacity-limited compartment system, so summed
+occupancy stays below one.  All smoothing operators and the background roughness field are
+defined in physical units, which makes results independent of grid spacing and time step,
+and all domains are doubly periodic and commensurate with the surface lattice.
 """
 from __future__ import annotations
 
@@ -46,7 +31,7 @@ class ModelConfig:
     beta: float = 4.5
     eps_diffusivity: float = 0.14
     eps_diffusion_exponent: float = 1.3
-    eps_linear_diffusivity: float = 0.2592  # = (0.6 px * 0.6 um)^2 / (2 * 0.25): v1 smoothing at its default grid
+    eps_linear_diffusivity: float = 0.2592  # um^2 per model-time unit
     eps_decay: float = 0.05
     eps_yield: float = 0.02
     eps_attach_threshold: float = 0.0015
@@ -59,6 +44,7 @@ class ModelConfig:
     use_dynamic_eps: bool = True
     use_transport: bool = True
     use_slope: bool = True
+    arrival_mode: str = "dual"   # dual | supply | capture
     use_steric: bool = True
     curv_scale: float = 0.5
     sense_scale: float = 0.25
@@ -173,8 +159,7 @@ def _attachment_energy(z, sp: SpeciesProfile, cfg: ModelConfig):
         contacts.append(np.exp(-gap / sp.adhesion_range))
     energy = np.min(np.stack(energies), axis=0)
     contact = np.max(np.stack(contacts), axis=0)
-    # v1 passed the relief of the last-evaluated orientation to the transport model; v2 uses
-    # the orientation that minimises relief (the most accessible approach configuration).
+    # Relief used for arrival: the orientation that minimises relief (most accessible approach).
     relief_ref = np.min(np.stack(reliefs), axis=0)
     if cfg.use_appendages and sp.appendage_count > 0:
         ring = shell_mask(sp, cfg.dx)
@@ -250,14 +235,16 @@ def evolve(layers, flux, sp: SpeciesProfile, cfg: ModelConfig, interior):
     slope = layers["slope"] if cfg.use_slope else np.zeros(shape)
     anchor_support = np.clip(att * (1.0 + 0.90 * app), 0.0, 1.8)
     retention = np.clip(np.exp(-0.22 * slope) * (1.0 + 0.60 * app + 0.35 * att), 0.30, 2.2)
-    l_ft = cfg.capture_rate * flux * (0.55 + 0.45 * np.minimum(att, 1.0))
+    j_cap = flux if cfg.arrival_mode in ("dual", "capture") else np.ones_like(flux)
+    j_sup = flux if cfg.arrival_mode in ("dual", "supply") else np.ones_like(flux)
+    l_ft = cfg.capture_rate * j_cap * (0.55 + 0.45 * np.minimum(att, 1.0))
     l_tf = sp.detach_rate * np.exp(0.25 * slope) / retention
     l_ta = sp.anchor_rate * anchor_support
     l_at = sp.reorientation_rate * np.exp(0.15 * slope) / np.clip(0.85 + 1.10 * app, 0.35, None)
     act_base = sp.eps_activation_rate * (0.40 + 0.60 * np.minimum(att, 1.0) + 0.15 * app)
     mat_base = sp.maturation_rate * (0.50 + 0.50 * np.minimum(att, 1.0))
     src_mod = np.clip(0.65 + 0.45 * np.minimum(att, 1.0) + 0.10 * app, 0.0, None)
-    f_target = np.clip(cfg.arrival_rate * flux, 0.0, 1.0)
+    f_target = np.clip(cfg.arrival_rate * j_sup, 0.0, 1.0)
     f = f_target.copy()
     t_, a, e, m = (np.zeros(shape) for _ in range(4))
     eps = np.zeros(shape)
@@ -373,6 +360,7 @@ class BladeGeometry:
     rough_amp: float = 0.05
     rough_corr: float = 0.6
     lattice_seed: int = 1
+    row_phase: float = 0.5
     rough_seed: int = 2
 
 
@@ -397,7 +385,7 @@ def build_blade_surface(g: BladeGeometry, cfg: ModelConfig):
             r = _blade_rng(g.lattice_seed, i, j)
             jx, jy = r.normal(0.0, g.jitter, 2)
             z4 = r.standard_normal(4)
-            specs.append(((i + 0.5 * (j % 2)) * pf + jx, (j + 0.5) * pc + jy,
+            specs.append(((i + g.row_phase * (j % 2)) * pf + jx, (j + 0.5) * pc + jy,
                           max(g.length * (1 + 0.05 * z4[0]), 1.0), max(g.base_width * (1 + 0.08 * z4[1]), 0.3),
                           max(g.tip_height * (1 + 0.1 * z4[2]), 0.05)))
     # pits: elliptical openings in the scale sheet centred under each tip

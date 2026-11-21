@@ -141,7 +141,7 @@ def fig_ensemble():
     for s in SP:
         r = tab.loc[s]
         if s in obs:
-            axs[1].errorbar(r.L, obs[s], xerr=[[r.L - r.L_lo], [r.L_hi - r.L]], yerr=1.96 * S["SE_obs"][s], fmt=MK[s], color=COL[s], ms=5, capsize=2, label=f"{it(s)} (observed)")
+            axs[1].errorbar(r.L, obs[s], xerr=[[r.L - r.L_lo], [r.L_hi - r.L]], yerr=4.303 * S["SE_obs"][s], fmt=MK[s], color=COL[s], ms=5, capsize=2, label=f"{it(s)} (observed)")
         else:
             axs[1].errorbar(r.L, e["pred_LR_Pa"], xerr=[[r.L - r.L_lo], [r.L_hi - r.L]],
                             yerr=[[e["pred_LR_Pa"] - e["pred_LR_Pa_ci"][0]], [e["pred_LR_Pa_ci"][1] - e["pred_LR_Pa"]]],

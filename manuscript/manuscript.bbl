@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -261,5 +261,12 @@ A.~Saltelli, P.~Annoni, I.~Azzini, F.~Campolongo, M.~Ratto, and S.~Tarantola.
 \newblock \emph{Comput. Phys. Commun.}, 181\penalty0 (2):\penalty0 259--270,
   2010.
 \newblock \doi{10.1016/j.cpc.2009.09.018}.
+
+\bibitem[Cruz~Neves and Pereira(2026)]{SnakeModel2026}
+Bianca Cruz~Neves and Antonio Pereira.
+\newblock Lateral blade packing predicts bacterial retention on reconstructed
+  ball python scales: model and analysis code.
+\newblock Software, version 2.2.1, GitHub, 2026.
+\newblock URL \url{https://github.com/squareshorts/snake-spike-sem/releases/tag/v2.2.1}.
 
 \end{thebibliography}

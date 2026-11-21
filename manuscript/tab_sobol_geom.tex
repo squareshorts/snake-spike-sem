@@ -1,5 +1,5 @@
 \begin{table}[h]\centering\small
-\caption{Total-order Sobol indices of $L$ with respect to blade-array geometry (Saltelli design, $n=64$ base samples, 832 geometries, $\Delta x=\SI{0.2}{\micrometre}$, common lattice and roughness seeds; 95\% bootstrap intervals). Each input was sampled uniformly over the bounded support of its prior (table~\ref{tab:prior}); the indices describe variance over this design space, not variance under the truncated-normal production priors.}\label{tab:sobolgeom}
+\caption{Total-order Sobol indices of $L$ with respect to blade-array geometry (Saltelli design, $n=64$ base samples, 832 geometries, $\Delta x=\SI{0.2}{\micrometre}$, common lattice and roughness seeds; 95\% bootstrap intervals). Each input was sampled uniformly over the bounded support in table~\ref{tab:prior}; the indices quantify sensitivity under this design-space distribution. The production ensemble propagates the parameter-specific priors in table~\ref{tab:prior}, including truncated-normal distributions for the measured spacings and length.}\label{tab:sobolgeom}
 \begin{tabular}{lccc}\toprule Parameter & \textit{E.~coli} & \textit{S.~aureus} & \textit{P.~aeruginosa}\\\midrule
 pitch a & 0.794 [0.582, 1.012] & 0.818 [0.603, 1.044] & 0.773 [0.554, 0.977]\\
 tip height & 0.200 [0.109, 0.314] & 0.177 [0.089, 0.280] & 0.225 [0.126, 0.358]\\

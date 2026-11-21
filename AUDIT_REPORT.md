@@ -1,64 +1,36 @@
-# JRSI submission and reproducibility audit
+# JRSI v2.2.1 release verification
 
-**Audit date:** 19 November 2026  
-**Package version:** 2.0.0  
-**Manuscript:** *Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales*
+**Date:** 20 November 2026
+**Release version:** 2.2.1
+**Manuscript:** *Lateral blade packing predicts bacterial retention on reconstructed ball python scales*
 
-## Scope
+## Scope and provenance
 
-The supplied local archive was inspected at source-code, simulation-output, statistical-summary, manuscript-source and compiled-PDF levels. The active package was reorganised around the blade-array implementation. The earlier spike-based model was moved to `legacy/` and is no longer imported by the active pipeline.
+This release retains the v2.0.0 model, ensemble, numerical verification, sensitivity analyses and published-observation comparisons. The verified v2.2.0 local analysis, now archived in v2.2.1, adds structural arrival-formulation tests, independently varied species coefficients, coverage-matched spacing comparisons, a three-dimensional geometry factorial, a fixed-density row-phase control, and finer-grid numerical checks. The underlying experimental observations remain those reported in the cited literature; no new bacterial experiments were performed.
 
-## Reproducibility checks
+The additional analysis scripts are `analysis_controls.py`, `tables_controls.py` and `figures_controls.py`. Saved numerical outputs and figures are in `results_v2/controls/`. The main model's default arrival mode and row phase preserve the v2.0.0 behaviour.
 
-The following analyses were rerun from the refactored source and compared with the supplied CSV outputs. All numeric columns matched exactly at the saved precision.
+## Results supported by the saved outputs
 
-| Analysis | Rows/evaluations | Result |
-|---|---:|---|
-| Production ensemble | 120 | Exact match |
-| Time-course subset | 36 | Exact match |
-| Sharklet comparison | 3 | Exact match |
-| Grid/domain verification | 108 | Exact match |
-| Sharklet grid verification | 15 | Exact match |
-| Geometric Sobol design | 2,496 species-level evaluations | Exact match |
+- **Coverage-matched spacing:** all 144 matched contrasts are positive across the tested species, arrival formulations, pit states and surface seeds. The comparison controls projected blade coverage, but does not hold feature density and blade width fixed.
+- **Three-dimensional geometric factorial:** all 144 paired contrasts are positive across the sampled tip heights, pit depths and nuisance geometries. They represent a prescribed sensitivity design, not 144 independent biological replicates.
+- **Independently varied species parameters:** *E. coli* exceeds *S. aureus* in predicted suppression in 148/160 tested coefficient scenarios; the ordering can reverse.
+- **Fixed-density row staggering:** the mean change is below 0.002 log units. The model does not show a distinctive benefit of a staggered arrangement at fixed feature density.
+- **Matched-coverage grid check:** all 24 contrasts remain positive at both 0.10 and 0.07 micrometre resolution. The largest change in an individual contrast is below 0.06 log units.
+- **Crowded geometries:** individual predicted log reductions can change by approximately 0.2 under finer-grid comparison. High-suppression values in extreme tall/crowded configurations do not have established pointwise convergence.
 
-The saved output bundle also passed structural checks for the mechanism knockouts (252 rows), design maps (486), material-adhesion analysis (120), long-time simulations (24), and mechanistic Sobol design (5,376). Statistical summaries, manuscript tables, numerical macros and figures were regenerated from the saved outputs.
+## Reproducibility checks and limits
 
-Eight automated tests passed. They cover species parameter integrity, finite blade and Sharklet surface generation, flat-reference normalisation, finite species-specific ratios, the subunit-occupancy condition, expected output row counts, numerical-macro precision and the matched P. aeruginosa mechanistic endpoint refit.
+The Windows project virtual environment is Python 3.10.11. Following installation of the release-safeguard patch, `python -m pytest -q` returned **15 passed**. Nine original tests and six additional regression checks cover model and package consistency, including saved geometry-control outputs and safe release-script defaults. These automated tests check saved numerical results and selected model behaviour; they do **not** certify a new uninterrupted end-to-end run of every simulation stage.
 
-The full eight-stage analysis pipeline was not certified as a single uninterrupted end-to-end run in this audit. The production ensemble, numerical verification and geometric Sobol stages were independently rerun; the other stage outputs were checked structurally and through the regenerated statistical summaries.
+An independent external audit reported exact agreement for arrival-formulation, spacing, coverage-matched, row-phase and matched-grid summaries, with renewed random nuisance draws giving comparable but nonidentical factorial and species-coefficient sensitivity summaries. The archive includes the explicit recorded outputs used by the manuscript.
 
-## Scientific and numerical corrections made
+## Release and submission status
 
-1. The abstract now limits the grid-refinement claim to the four blade-array tests actually evaluated. Their maximum change is 0.06 log10 units; the Sharklet AF-type cell changes by 0.15.
-2. The maximum time-step effect is reported as 0.0015 log10 units, consistent with the saved maximum of 0.001483.
-3. The geometric Sobol analysis is described as uniform sampling over bounded parameter supports. It is not presented as a variance decomposition under the truncated-normal production priors.
-4. The 12-reconstruction time-course analysis and eight-reconstruction extension to 72 model-time units are distinguished.
-5. The 128 A/B settings of the Saltelli design are described as parameter settings, not independent posterior draws.
-6. The P. aeruginosa mechanistic interval was recalculated by refitting the shared endpoint exponent within each of the 128 matched A/B coefficient settings and redrawing the two observed reductions over 200,000 Monte Carlo draws. The resulting interval is 0.87–1.00, distinct from the 0.88–0.99 baseline endpoint interval.
-7. The supplementary model specification now defines the annular appendage descriptor, logistic gate widths, nonlinear EPS step-size scale, EPS field units, curvature smoothing scale and shared parameter units.
-8. The EPS operator is described as implemented. It is a yield-gated nonlinear diffusion term without an outer divergence operator; it is not described as a conservative flux.
-9. The retained-activity symbol is separated from the arrival weighting, the finite-cell pitch-rounding bound is given for both lattice directions, and the supplementary numerical-verification table is kept together on one page.
-10. The discussion was revised to connect the geometric mechanism, species contrast, endpoint mapping, and material-chemistry limitation without compressed or ambiguous transitions.
-11. The micro sign in micrometre units was rendering incorrectly in the XeLaTeX PDFs. The source now declares an explicit `\textmu`-based SI unit; the rebuilt PDFs display and extract `µm` correctly.
-12. Figure 6 was enlarged to improve legibility and use of the manuscript page.
+The earlier public `v2.2.0` Git tag pointed to the exact commit also tagged `v2.0.0`, so it did not archive the newly computed geometry controls. The associated Zenodo DOI `10.5281/zenodo.24408778` should not be cited for the present analysis. Version `v2.2.1` is the corrective release of the locally verified code and output tables. Its own Zenodo DOI must be minted from the correct GitHub tag and then entered into the manuscript and submission metadata. The publication script is preview-only by default and uses a 127-path whitelist.
 
-## Manuscript and submission package
+The 15 passing tests were run on the corrected local repository on 20 November 2026; no new end-to-end simulation run is claimed in this corrective release.
 
-- Main manuscript, supplementary material and cover letter were rebuilt from the LaTeX sources with XeLaTeX.
-- The main manuscript retains the funding statement. Ethics, data accessibility, competing-interest and author-contribution declarations are supplied separately in `SUBMISSION_METADATA.md`, consistent with the journal's submission workflow.
-- The AI-use statement in `SUBMISSION_METADATA.md` names Claude and ChatGPT and describes their code and language contributions. The authors must confirm its accuracy before submission.
-- The cover letter includes a concise statement of journal fit and the public code repository URL.
-- The final source scan found no TODO, TBD, INSERT HERE or similar manuscript placeholders.
+## Author checks
 
-## Repository and release state
-
-The active repository layout is prepared for a major version change to `v2.0.0`. The previous v1.0.0 release and its DOI `10.5281/zenodo.19316098` refer to the spike-based predecessor, not this manuscript. The new `.zenodo.json` and `CITATION.cff` identify version 2.0.0 and intentionally omit a new DOI until Zenodo archives the new GitHub release.
-
-The GitHub remote has not been updated from this environment. Use `INSTALL_JRSI_V2.ps1` to install the prepared tree while preserving the existing `.git` directory and backing up the previous working files. Then run `PUBLISH_GITHUB.ps1` to review, commit and push `main`, create and push tag `v2.0.0`, and optionally create the GitHub release through `gh`.
-
-## Items requiring author confirmation
-
-1. **Bianca Cruz Neves's affiliation:** the current manuscript and v2 metadata list Federal University of Pará. The previous Zenodo metadata listed the Institute of Chemistry, Federal University of Rio de Janeiro. Confirm the correct current affiliation and make the manuscript, CFF and Zenodo metadata agree.
-2. **AI-use declaration:** confirm that the description of Claude and ChatGPT assistance is complete and accurate for both authors.
-3. **CRediT roles:** confirm the roles listed in `SUBMISSION_METADATA.md` before entering them in ScholarOne.
-4. **Zenodo DOI:** create the GitHub release, allow Zenodo to archive it, and add the newly minted v2.0.0 DOI to the data-accessibility statement and citation metadata. Do not reuse the v1.0.0 DOI.
+The authors should confirm the affiliations, CRediT roles, funding, competing interests and the precise description of AI-assisted development, code checking and language editing. Scientific conclusions remain conditional on the model and published observations. The original keratin-versus-polystyrene assay does not isolate the causal contribution of surface topography.

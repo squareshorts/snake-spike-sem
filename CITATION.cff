@@ -1,19 +1,20 @@
 cff-version: 1.2.0
 message: "If you use this software or its outputs, please cite the associated manuscript and this software release."
-title: "Lateral packing of imbricated blades governs species-dependent bacterial suppression on ball python scales: model and analysis code"
-version: 2.0.0
-date-released: 2026-11-19
+title: "Lateral blade packing predicts bacterial retention on reconstructed ball python scales: model and analysis code"
+version: 2.2.1
+date-released: 2026-11-20
 type: software
 license: MIT
 abstract: >-
   Mechanistic model and reproducibility package for evaluating how the imbricated,
   tapered blade arrays on Python regius scales influence species-dependent bacterial
   suppression. The release includes model code, simulation outputs, numerical checks,
-  sensitivity analyses, manuscript figures and table-generation scripts.
+  sensitivity analyses, arrival-formulation alternatives, independent species
+  coefficients, geometric control experiments, manuscript figures and table-generation scripts.
 authors:
   - family-names: Cruz Neves
     given-names: Bianca
-    affiliation: "Federal University of Pará, Belém, Brazil"
+    affiliation: "Institute of Chemistry, Federal University of Rio de Janeiro, Rio de Janeiro, Brazil"
   - family-names: Pereira
     given-names: Antonio
     affiliation: "Signal Processing Laboratory, Federal University of Pará, Belém, Brazil"

@@ -2,6 +2,7 @@
 \usepackage[a4paper,margin=2.3cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs,longtable,float}
+\usepackage{placeins}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -10,12 +11,13 @@
 \DeclareSIUnit{\micrometre}{\text{\textmu}m}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
-\graphicspath{{../results_v2/figures/}}
+\graphicspath{{../results_v2/figures/}{../results_v2/controls/figures/}}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\thesection}{S\arabic{section}}
 \input{numbers.tex}
+\input{geometry_numbers.tex}
 \input{title.tex}
 \newcommand{\Ec}{\textit{E.~coli}}
 \newcommand{\Sa}{\textit{S.~aureus}}
@@ -85,7 +87,7 @@ The fields obey
 \dot F&=\rho(\lambda_{\mathrm{arr}}J-F)-r_{FT}F\kappa+r_{TF}T, &\dot T&=r_{FT}F\kappa-(r_{TF}+r_{TA})T+r_{AT}A,\\
 \dot A&=r_{TA}T-(r_{AT}+r_{AE})A, &\dot E&=r_{AE}A-r_{EM}E,\qquad\dot M=r_{EM}E,
 \end{align}
-from $F=\mathrm{clip}(\lambda_{\mathrm{arr}}J,0,1)$ and $T=A=E=M=e=0$, integrated by explicit Euler steps of $h=0.05$ model-time units. The site-capacity factor reduces capture as occupancy approaches one. The summed occupancy remained below one in every reported simulation; no post-update cap was applied to total occupancy (largest value across the ensemble \MaxOcc{}).
+from $F=\mathrm{clip}(\lambda_{\mathrm{arr}}J,0,1)$ and $T=A=E=M=e=0$, integrated by explicit Euler steps of $h=0.05$ model-time units. The site-capacity factor reduces capture as occupancy approaches one. Summed occupancy stayed below one in every reported simulation without capping (largest value across the ensemble \MaxOcc{}).
 
 \subsection{Extracellular polymeric substance}
 \begin{align}
@@ -93,7 +95,7 @@ from $F=\mathrm{clip}(\lambda_{\mathrm{arr}}J,0,1)$ and $T=A=E=M=e=0$, integrate
 &\quad+s_{\mathrm{EPS}}(0.35A+0.85E+1.25M)\max(0.65+0.45\bar p+0.10b,0)-k_de,\\
 \mathcal L &= \nabla^2(e^\nu),\qquad m(\mathcal L)=\{1+\exp[-(|\mathcal L|-\theta_y)/0.03]\}^{-1}.
 \end{align}
-The effective EPS field $e$ is dimensionless. The nonlinear yield-gated diffusion term is implemented in the form shown, without an outer divergence operator. Each state step applies the exact linear-diffusion propagator over two half-steps (Strang splitting); the remaining terms are integrated explicitly with sub-steps limited by $0.2\Delta x^2/D_{\mathrm{nl}}$, where
+The effective EPS field $e$ is dimensionless. The nonlinear contribution is implemented as the yield-gated Laplacian term shown, without an outer divergence operator. The separate linear term is a standard diffusion operator. Each state step applies its exact propagator over two half-steps (Strang splitting); the remaining terms are integrated explicitly with sub-steps limited by $0.2\Delta x^2/D_{\mathrm{nl}}$, where
 \begin{equation}
 D_{\mathrm{nl}}=D_0\nu\max(e_{\max},10^{-8})^{\nu-1}
 \end{equation}
@@ -127,6 +129,109 @@ Figure~5 of Peroutka et al.\ \cite{Peroutka2026} reports the 48~h assay in two f
 \input{tab_sobol_mech.tex}
 \input{tab_chem.tex}
 
+\FloatBarrier
+\section{Arrival formulation and structural sensitivity}
+The spatial arrival field $J$ in the primary model enters the free-cell supply and the coefficient for capture of transient cells. Let $i$ specify whether $J$ enters capture and $j$ specify whether it enters supply. We compared
+\begin{align}
+r_{FT}^{(i)}&=k_{\mathrm{cap}}J^i(0.55+0.45\bar p), &F_{\mathrm{target}}^{(j)}&=\lambda_{\mathrm{arr}}J^j,\\
+(i,j)&=(1,1)\quad\text{dual pathway},&(i,j)&=(0,1)\quad\text{supply only},\qquad (1,0)\quad\text{capture only}.
+\end{align}
+The free-cell field was initialized to $F_{\mathrm{target}}^{(j)}$ in all three cases. At initialization, with nearly all sites available, the capture flux is proportional to $J^{i+j}$. The same reconstructed height field, species coefficients, contact field, EPS dynamics, numerical solver and mode-specific matched flat reference were used at every setting. The comparison used 40 identical geometric reconstructions at $\Delta x=\SI{0.10}{\micrometre}$. Bootstrap intervals were calculated by resampling reconstructed surfaces with replacement 10,000 times. The structural alternatives isolate the two appearances of the same $J$ field.
+
+\input{tab_structural.tex}
+
+\FloatBarrier
+\section{Lateral-spacing contrast and independent species parameters}
+We varied adjacent-tip spacing between 3.4 and \SI{5.9}{\micrometre} in six steps at tip height \SI{1.5}{\micrometre}, using four common pairs of lattice and roughness seeds for each arrival formulation. In a separate coefficient experiment, 160 geometries were generated with seed 20261120. For every geometry, nine coefficients---body adhesion, adhesion range, transport slope and relief penalties, steric cost, appendage strength, detachment, anchoring and EPS activation---were multiplied by independently sampled uniform factors from $[0.8,1.2]$ for each species; $\beta$ and the relative body adhesion of the flat control received additional factors from the same interval, also drawn separately for each species. Each species was simulated against its matched flat control at $\Delta x=\SI{0.15}{\micrometre}$. Scenario quantiles describe the declared ranges and carry no fitted uncertainty.
+
+\input{tab_spacing.tex}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figS2_spacing.pdf}
+\caption{Six-point lateral-packing sweep under the dual-pathway arrival formulation and the supply-only and capture-only alternatives. Each curve shows $-\log_{10}$ of the mean remaining fraction over four independently seeded surfaces at each spacing.}
+\label{fig:spacingnew}\end{figure}
+
+\input{tab_independent.tex}
+
+\FloatBarrier
+\section{Small-sample uncertainty in the published contrast}
+The ratio of published mean scale CFU to polystyrene CFU was transformed by $\mathrm{LR}=-\log_{10}(\bar r)$. We used the reported standard deviations for three biological replicates with the delta-method standard error $\mathrm{SE}(\mathrm{LR})\simeq\mathrm{SD}(r)/(\bar r\ln(10)\sqrt3)$. The Welch calculation treats the two transformed summary statistics as independent. Original replicate counts, within-pair correlations and the full observation distribution were unavailable, so the approximate $t$ intervals and test serve as small-sample diagnostics.
+
+\begin{table}[htbp]\centering\small
+\caption{Exploratory uncertainty diagnostic calculated from published summary statistics ($n=3$ biological replicates per species).}
+\label{tab:smalln}
+\begin{tabular}{lc}\toprule
+Statistic & Value\\\midrule
+\Ec{} log reduction, approximate 95\% $t$ interval & 0.81--1.05\\
+\Sa{} log reduction, approximate 95\% $t$ interval & 0.25--1.05\\
+Between-species difference (\Ec{} minus \Sa{}) & 0.28\\
+Welch degrees of freedom & 2.35\\
+Exploratory two-sided $p$ & 0.085\\
+\bottomrule\end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{Geometric identifiability controls}
+Four experiments separated the effect of adjacent-tip spacing from correlated changes in projected blade coverage, unmeasured three-dimensional relief and the arrangement of features at fixed density. Source code, per-configuration geometric descriptors and retention predictions are archived in Zenodo with the model code. Contrasts refer to the model observable $L=-\log_{10}(B_{\mathrm{pattern}}/B_{\mathrm{flat}})$ at model time $t=4.5$, and seed ranges describe geometric variation within the model.
+
+\subsection{Projected-coverage-matched spacing designs}
+Three adjacent-tip spacings ($p_a=3.8$, 4.4 and \SI{5.2}{\micrometre}) were evaluated on each of eight independently seeded lattices with identical seeds at every spacing. For the pit-bearing array, blade-base width was adjusted by binary search within the prior range $[1.6,3.4]$~\si{\micrometre} until the grid fraction of the projected blade mask was 0.35. A separate pit-free control set $d_p=0$ and matched its projected blade fraction to 0.46. These two fractional coverage targets were chosen because their respective intersections of feasible coverage ranges contained all three spacings without extrapolating the base-width prior. Consequently, direct differences between the pit-bearing and pit-free estimates also reflect the different target coverages. Each array was evaluated under the dual-pathway, supply-only and capture-only arrival models on the production grid $\Delta x=\SI{0.10}{\micrometre}$. The blade-mask coverage objective was independent of bacterial response, and each pairwise $L$ contrast used the same lattice and roughness seeds.
+
+\input{tab_geom_coverage.tex}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figS3_matched_coverage.pdf}
+\caption{Model log reductions over the matched-coverage lateral-spacing design. The first row contains arrays with pits and the second row contains pit-free arrays. Solid, dashed and dotted curves correspond to the dual-pathway, supply-only and capture-only arrival formulations; shaded regions represent one standard deviation across eight reconstructed textures. The two pit conditions have distinct coverage targets and should be interpreted within condition.}
+\label{fig:coveragecontrols}
+\end{figure}
+
+\subsection{Variation in unmeasured blade height and pit depth}
+The factorial experiment combined $p_a\in\{3.8,4.4,5.0\}$~\si{\micrometre}, tip height $h_t\in\{0.5,1.5,3.0\}$~\si{\micrometre} and pit depth $d_p\in\{0.5,2.5\}$~\si{\micrometre}. Eight nuisance-geometry draws sampled the measured following pitch and blade length from their truncated-normal priors and the blade width, taper, pit size, jitter and roughness from the bounded priors reported in table~\ref{tab:prior}. Each nuisance draw was reused across all eighteen factorial combinations, yielding 144 distinct patterned surfaces and 432 species-model predictions under the dual-pathway arrival model at $\Delta x=\SI{0.10}{\micrometre}$. Paired contrasts compare close and widely spaced blades for the same nuisance geometry, height and pit depth. The 48 pairwise contrasts per species share eight nuisance draws.
+
+\input{tab_geom_factorial.tex}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=.94\linewidth]{figS4_factorial_3d.pdf}
+\caption{Mean paired log-reduction difference $L(3.8)-L(5.0)$ as a function of the unmeasured tip height and pit depth in the primary dual-pathway model. Each cell averages eight matched nuisance-geometry draws with the other geometric parameters sampled from their declared priors.}
+\label{fig:factorialcontrols}
+\end{figure}
+
+\subsection{Arrangement at fixed feature density}
+We altered the offset of alternating rows by $\delta\in\{0,0.25,0.5\}$, measured in units of the following-blade pitch. The $\delta=0.5$ configuration is the staggered reconstruction used throughout. For all three phases, the perpendicular separation between rows, following pitch, number of blade features, nominal blade geometry and pit dimensions were held fixed. The model predictions were computed for eight matched seeds in both the intact-pit and pit-free versions, using the primary arrival formulation and $\Delta x=\SI{0.10}{\micrometre}$. Density is thus fixed exactly, whereas the diagonal distance between neighbouring tips changes with row phase. Differences in projected blade-mask fraction are reported in the source CSV for each configuration.
+
+\input{tab_geom_phase.tex}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{figS5_fixed_density_phase.pdf}
+\caption{Fixed-density row-phase response. Each curve is the mean $L$ across eight common lattice seeds for the primary arrival formulation; error bars show one standard deviation between seeds. The upper row lacks pits and the lower row retains the nominal pits. The phase parameter changes the lateral arrangement at fixed feature count and row separation.}
+\label{fig:phasecontrols}
+\end{figure}
+
+\subsection{Grid sensitivity near narrow channels}
+The original numerical test included a typical array and three prior draws. The additional experiment examines a close-packed nominal array ($p_a=3.4$~\si{\micrometre}, $w_0=2.2$~\si{\micrometre}), a tall and crowded close-packed array ($h_t=3.0$~\si{\micrometre}, $w_0=3.2$~\si{\micrometre}), a low and narrow close-packed array ($h_t=0.5$~\si{\micrometre}, $w_0=1.6$~\si{\micrometre}), and a wide-spacing nominal reference ($p_a=5.9$~\si{\micrometre}). Each geometry and species was simulated at $\Delta x=0.15$, 0.10 and \SI{0.07}{\micrometre} in the primary arrival formulation. Differences between the two finest grids are empirical convergence diagnostics at these resolutions, with no extrapolation to the continuum limit. Because the closest and most crowded cases had larger grid effects, we also ran them at $\Delta x=\SI{0.05}{\micrometre}$. The further differences, reaching \GeomExtremeMaxAdditional{} log units, show that extreme high-relief point predictions remain numerically sensitive.
+
+\input{tab_geom_grid.tex}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=.92\linewidth]{figS6_close_grid.pdf}
+\caption{Signed log-reduction difference between grid spacings of 0.10 and \SI{0.07}{\micrometre} for each geometric test case and species. The absolute value measures sensitivity to refinement in the tested interval.}
+\label{fig:gridcontrols}
+\end{figure}
+\FloatBarrier
+
+
+\subsection{Finer-grid replication of the primary coverage-matched contrast}
+For four of the eight paired texture seeds (11, 22, 33 and 44), each pit-bearing and pit-free array at $p_a=3.8$ and \SI{5.2}{\micrometre} was recalculated at $\Delta x=\SI{0.07}{\micrometre}$. The blade-base widths remained fixed at their values selected from the projected-coverage objective at $\Delta x=\SI{0.10}{\micrometre}$; this is a direct numerical refinement of the same reconstructed surfaces, without recalibrating the geometry or using the bacterial predictions during matching. Every one of the \GeomFinePos{} paired refined log-reduction differences was positive, and the largest absolute change in the paired difference between the two grid spacings was \GeomFineMaxDeltaError{} log units. The distinction between a stable contrast and numerically sensitive high-relief point estimates is retained in the main conclusions.
+
+\input{tab_geom_matched_grid.tex}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=.9\linewidth]{figS7_matched_grid.pdf}
+\caption{Direct numerical refinement of the matched-coverage design. Each point gives a paired log-reduction contrast $L(3.8)-L(5.2)$ for one species, one pit treatment and one of four matched texture seeds. The dashed line indicates equality between calculations at $\Delta x=0.10$ and \SI{0.07}{\micrometre}. All 24 refined contrasts are positive.}
+\label{fig:matchedgrid}
+\end{figure}
+
+\FloatBarrier
 \bibliographystyle{unsrtnat}
 \bibliography{refs}
 \end{document}
